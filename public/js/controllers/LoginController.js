@@ -12,6 +12,6 @@ function LoginController(LoginService, $state) {
 
     function login() {
         LoginService.login(vm.user);
-        $state.go('shop.main');
+        $state.go('shop.products');
     }
 }

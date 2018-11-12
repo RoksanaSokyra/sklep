@@ -12,7 +12,7 @@ var app = express();
 
 require('./app/models/User');
 require('./app/models/Item');
-
+require('./app/models/Category');
 
 require('./config/passport-local');
 

@@ -14,4 +14,11 @@
             </li>
         </ul>
     </div>
+    <div class="header_menu">
+        <div ng-repeat="category in headerCtrl.categories track by $index">
+
+            <p>{{category.title}}</p>
+        </div>
+
+    </div>
 </nav>

@@ -6,19 +6,18 @@
 module.exports = function (app) {
 	
 
-    app.get('/', function (req, res) {
-        console.log('jestem tutaj kurwa');
+   /* app.get('/', function (req, res) {
         Item.find({}, function (err, items) {
             if (err) { console.log("blad"); }
             console.log('jestem tutaj');
             console.log(items);
             res.json(items);
         });
-    });
+    });*/
     require('./routing/LoginRoutes')(app);
     require('./routing/RegisterRoutes')(app);
     require('./routing/ItemRoutes')(app);
-    
+    require('./routing/CategoryRoutes')(app);
 
 };
 

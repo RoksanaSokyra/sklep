@@ -3,7 +3,7 @@ angular.module('myApp').factory('ItemService', ItemService);
 function ItemService($http) {
     var service = {}
     service.getItems = getItems;
-    //service.putItem = putItem;
+    service.putItem = putItem;
 
     return service;
 
@@ -13,8 +13,8 @@ function ItemService($http) {
             return response.data;
         });
     }
-    //function putItem(item) {
-     //   return $http.post('/items/', item); //czy drugi ukosnik potrzebny
-   // }
+    function putItem(item) {
+        return $http.post('/items/', item); //czy drugi ukosnik potrzebny
+    }
 
 }
