@@ -18,8 +18,10 @@ module.exports = function (app) {
         });
     });
     app.get('/items', function (req, res) {
+        console.log('kurwa');
         Item.find({}, function (err, items) {
             if (err) { console.log("blad"); }
+            console.log(items);
             res.json(items);
         });
     });

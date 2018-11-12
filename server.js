@@ -16,7 +16,7 @@ require('./app/models/Item');
 
 require('./config/passport-local');
 
-var port = process.env.PORT || 8080; 
+var port = process.env.PORT || 8081; 
 
 mongoose.connect('mongodb://admin:adminadmin123@ds253243.mlab.com:53243/shop'); //podac url 
 

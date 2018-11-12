@@ -5,7 +5,12 @@ function routeConfig($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('shop', {
-            url: '',
+            url: '/',
+            resolve: {
+                items: function (ItemService) {
+                    return ItemService.getItems();
+                        }
+            },
             views: {
                 '': {
                     templateUrl: 'views/shop_structure.html',
@@ -15,46 +20,32 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 },
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
-                }/*,
+                },
                 'main@shop': {
                     templateUrl: 'views/main.html',
                     controller: 'MainController',
                     controllerAs: 'mainCtrl',
-                    resolve: {
-                        itemo: function () {
-                            return { value: 'simple!' };
-                        },
-                    }
-                    //,
-                    //resolve: {
-                       // items: function (ItemService) {
-                            // this depends on the 'customer' resolve above
-                           // console.log("terere");
-                            //console.log(ItemService.getItems());
-                          //  return ItemService.getItems();
-                      //  }
-                   // }
-
-                }*/
+                  
+                }
             }
         })
-        .state('shop.main', {
+        /*.state('shop.main', {
             url: '/',
             views: {
                 'main@shop': {
-                   templateUrl: 'views/main.html',
-                   // controller: 'MainController',
-                   // resolve: resolveController('/app/controllers/customersController.js'),
+                    templateUrl: 'views/main.html',
+                    // controller: 'MainController',
+                    // resolve: resolveController('/app/controllers/customersController.js'),
                     controllerAs: 'mainCtrl',
                     resolve: {
                         items: function () {
                             return 'simple!';
                         },
-                    
+
                     }
                 }
             }
-        })
+        })*/
         .state('addItem', {
             url: '/items',
             templateUrl: 'views/items.html',
@@ -90,9 +81,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
 //}
 /*
 angular.module('myApp').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
     $routeProvider
-
         
         .when('/register', {
             templateUrl: 'views/register.html',
@@ -104,11 +93,18 @@ angular.module('myApp').config(['$routeProvider', '$locationProvider', function 
             controller: 'LoginController',
             controllerAs: 'loginCtrl'
         })
-
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
     });
-
 }]);
 */
+/*
+angular
+    .module('myApp')
+    .controller('MainController', MainController);
+
+function MainController($scope, items) {//, items) {//, items) {
+    var vm = this;
+   vm.items = items;
+}(/)*/

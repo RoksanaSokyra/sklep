@@ -1,4 +1,4 @@
-<div ng-repeat="item in mainCtrl.items">
+<div ng-repeat="item in mainCtrl.items track by $index">
       
-    <p>{{item}}</p>
+    <p>{{item.title}}</p>
 </div>

@@ -5,9 +5,7 @@ var User = mongoose.model('User');
 
 module.exports = function (app) {
 
-    app.get('*', function (req, res) {
-        res.sendfile('./public/index.html'); // load our public/index.html file
-    });
+
     app.post('/register', function (req, res) {
         var user = new User();
         user.email = req.body.email;
