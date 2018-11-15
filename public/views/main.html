@@ -1,4 +1,6 @@
 <div ng-repeat="item in mainCtrl.items track by $index">
-      
-    <p>{{item.title}}</p>
+
+    <a ui-sref="shop.item({id: item._id})">
+        <p>{{item.title}}</p> 
+    </a>
 </div>

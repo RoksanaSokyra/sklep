@@ -12,7 +12,11 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 },
                 categories: function (CategoryService) {
                     return CategoryService.getCategories();
-                }
+                },
+
+                //item: function (ItemService, $stateParams) {
+                  //  return ItemService.getItem($stateParams.id);
+               // }
             },
             views: {
                 '': {
@@ -34,14 +38,29 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }*/
             }
         })
-        .state('shop.products', {
-            url: '/',
+        .state('shop.items', {
+            url: '',
             views: {
                 'main@shop': {
                     templateUrl: 'views/main.html',
                     controller: 'MainController',
                     controllerAs: 'mainCtrl',
 
+                }
+            }
+        })
+        .state('shop.item', {
+            url: 'items/:id',
+            resolve: {
+            item: function (ItemService, $stateParams) {
+                 return ItemService.getItem($stateParams.id);
+                 }
+            },
+           views: {
+                'main@shop': {
+                    templateUrl: 'views/item-details.html',
+                    controller: 'ItemDetailsController',
+                    controllerAs: 'itemDetailsCtrl'
                 }
             }
         })
@@ -81,6 +100,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             controller: 'LoginController',
             controllerAs: 'loginCtrl'
         })
+        
 }
 
 //function getItems(ItemsService) {

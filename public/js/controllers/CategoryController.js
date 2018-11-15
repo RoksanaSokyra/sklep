@@ -12,6 +12,6 @@ function CategoryController(CategoryService, $state) {
 
     function putCategory() {
         CategoryService.putCategory(vm.category);
-        $state.go('shop.products');
+        $state.go('shop.items');
     }
 }

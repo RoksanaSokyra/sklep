@@ -19,6 +19,6 @@ function ItemController(ItemService, $state) {
 
     function putItem() {
         ItemService.putItem(vm.item);
-        $state.go('shop.products');
+        $state.go('shop.items');
     }
 }
