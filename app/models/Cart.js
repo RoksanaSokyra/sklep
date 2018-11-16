@@ -1,13 +1,13 @@
-/*var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 var cartSchema = new mongoose.Schema({
-    items: [CartItemSchema],
+    items:[],// [CartItemSchema],
     count: Number,
     summary: Number
 });
-
+/*
 cartSchema.addItem = function (item) {
-    /itemAlreadyInCart = false;
+    itemAlreadyInCart = false;
     items.forEach(function (i) {
         if (i._id == item._id) {
             itemAlreadyInCart = true;
@@ -37,5 +37,5 @@ cartSchema.deleteItem = function (item) {
 }
 
 */
-//var Cart = mongoose.model('Cart', cartSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny
-//module.exports = Cart; //esport modelu
+var Cart = mongoose.model('Cart', cartSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny
+module.exports = Cart; //esport modelu

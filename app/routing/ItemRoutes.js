@@ -24,11 +24,8 @@ module.exports = function (app) {
         });
     });
     app.get('/items/:id', function (req, res) {
-        console.log('chuj id');
-        console.log(req.params.id);
         Item.findById(req.params.id, function (err, item) {
             if (err) { console.log("blad"); }
-            console.log(item);
             res.json(item);
         });
     });

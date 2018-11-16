@@ -1,4 +1,4 @@
-/*var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 var cartItemSchema = new mongoose.Schema({
     name: String,
@@ -16,4 +16,4 @@ cartItemSchema.methods.calculateTotalSum = function () {
 }
 
 var CartItem = mongoose.model('CartItem', cartItemSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny
-module.exports = CartItem; //esport modelu*/
+module.exports = CartItem; //esport modelu

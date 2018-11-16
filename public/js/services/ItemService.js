@@ -14,12 +14,10 @@ function ItemService($http) {
         });
     }
     function getItem(id) {
-        console.log('chujek');
         return $http.get('items/' + id).then(function (response) {
             console.log(response.data);
             return response.data;
         });
-      //  return 'b';
     }
 
     function putItem(item) {
