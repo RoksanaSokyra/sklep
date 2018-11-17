@@ -5,29 +5,40 @@ function CartService($http, $window) {
     service.addToCart = addToCart;
     service.createCart = createCart;
     service.getCart = getCart;
-
+    var cart = initCart();//{
+       // items: [],// [CartItemSchema],
+        //count: 0,
+        //summary: 0
+    //}
     return service;
 
 
+    function initCart() {
+        if (JSON.parse($window.localStorage.getItem('cart'))) {
+            return JSON.parse($window.localStorage.getItem('cart'));
+        }
+       else  return {items: [], count: 0, summary: 0};
+    }
+    
+
     function getCart() {
-        return JSON.parse($window.localStorage.getItem('cart'));
+        return cart;//return JSON.parse($window.localStorage.getItem('cart'));
     }
 
     function createCart() {
-        var cart = {
-            items: [],// [CartItemSchema],
-            count: 0,
-            summary: 0
-        }
+        //var c = {
+         //   items: [],// [CartItemSchema],
+         //   count: 0,
+         //   summary: 0
+       // };
+        //cart = c;
         $window.localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     function addItemToExistingCart(item) {
         itemAlreadyInCart = false;
-        var cart = getCart();
-        console.log("count: " + cart.count);
-        console.log("summary: " + cart.summary);
-        console.log(Array.isArray(cart.items));
+       // console.log(cart);
+       // var cart = getCart();
         cart.items.forEach(function (i) {
             if (i._id == item._id) {
                 itemAlreadyInCart = true;
@@ -38,6 +49,7 @@ function CartService($http, $window) {
         if (itemAlreadyInCart == false) {
             var cartItem = {
                 _id: item._id, 
+                title: item.title,
                 price: item.price,
                 quantity: 1,
                 sum: item.price
@@ -47,14 +59,11 @@ function CartService($http, $window) {
         cart.count += 1; 
         cart.sum += item.price;
         $window.localStorage.setItem('cart', JSON.stringify(cart));
-        cart.items.forEach(function (i) {
-           
-                console.log("items:" + i._id);
-            
-        });
+        
     }
 
     function addToCart(item) { 
+        //$window.localStorage.removeItem('cart')
         if ($window.localStorage.getItem('cart')) {
             addItemToExistingCart(item);
         }

@@ -1,0 +1,39 @@
+<h1>KOSZYK</h1>
+<form>
+    <table>
+        <thead>
+            <tr>
+                <!--<th>produkt</th> fotka-->
+                <th>opis</th>
+                <!--<th>kolor</th>-->
+                <!--<th>rozmiar-->
+                <th>ilosc</th>
+                <th>kwota</th>
+                <!--<th>usun</th>-->
+            </tr>
+        </thead>
+        <tbody ng-repeat="item in cartCtrl.cart.items track by $index">
+            <tr>
+                <th>{{item.title}}</th>
+                <th>{{item.quantity}}</th>
+                <th>{{item.sum}}</th>
+            </tr>
+        </tbody>
+
+        <!--<tfoot> 
+            <tr>
+                <th>Kwota zamowienia: </th>
+                <td>{{cartCtrl.sum}} PLN</td>
+             <th><button></button></th> {{cartCtrl.removeItem(item)}}
+            </tr>
+            <tr>
+                <th>Koszt wysylki: </th>
+                <td>0 PLN</td>
+            </tr>
+            <tr>
+                <th>Razem: </th>
+                <td>0 PLN</td>
+            </tr>
+        </tfoot>-->
+    </table>
+</form>

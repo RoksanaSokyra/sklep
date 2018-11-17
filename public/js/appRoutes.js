@@ -64,6 +64,21 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('shop.cart', {
+            url: 'cart',
+            resolve: {
+                cart: function (CartService) {
+                    return CartService.getCart();
+                }
+            },
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/cart.html',
+                    controller: 'CartController',
+                    controllerAs: 'cartCtrl'
+                }
+            }
+        })
         .state('addItem', {
             url: '/items',
             templateUrl: 'views/items.html',

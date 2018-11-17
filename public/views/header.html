@@ -15,7 +15,14 @@
         </ul>
     </div>
     <div class="header_menu">
-        <!--<p> {{ headerCtrl.cart.quantity }} items in your cart</p>-->
+        <a ui-sref="shop.cart">
+            <span ng-if="!headerCtrl.cart.items.length">
+                is empty
+            </span>
+            <span ng-if="headerCtrl.cart.items.length">
+                {{ headerCtrl.cart.count }} items in your cart
+            </span>
+        </a>
         <div ng-repeat="category in headerCtrl.categories track by $index">
             <p>{{category.title}}</p>
         </div>
