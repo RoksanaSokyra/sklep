@@ -5,9 +5,9 @@ var cartSchema = new mongoose.Schema({
     count: Number,
     summary: Number
 });
-/*
+
 cartSchema.addItem = function (item) {
-    itemAlreadyInCart = false;
+   /* itemAlreadyInCart = false;
     items.forEach(function (i) {
         if (i._id == item._id) {
             itemAlreadyInCart = true;
@@ -18,10 +18,11 @@ cartSchema.addItem = function (item) {
         items.push(item);
     }
     count += item.quantity; //+=1
-    //summary += item.i.calculateTotalSum();
+    //summary += item.i.calculateTotalSum();*/
+    items.push(item);
     this.save();
 }
-
+/*
 cartSchema.deleteItem = function (item) {
     items.forEach(function (i) {
         if (i._id == item._id) {
