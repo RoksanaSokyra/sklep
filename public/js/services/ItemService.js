@@ -9,7 +9,6 @@ function ItemService($http) {
 
     function getItems() {
         return $http.get('/items').then(function (response) { //response.data mozna zamienic n data.data?
-            console.log("chujozo");
             return response.data;
         });
     }

@@ -21,47 +21,30 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
                 },
+				'menu_settings@shop': {
+                    templateUrl: 'views/menu_settings.html',
+                },
+				'main_menu@shop': {
+                    templateUrl: 'views/main_menu.html',
+                },
                 'main@shop': {
                     templateUrl: 'views/main.html',
                     controller: 'MainController',
                     controllerAs: 'mainCtrl',
                   
-                }
+                },
+				'slideshow@shop': {
+					templateUrl: 'views/slideshow.html',
+				}
             }
         })
-        /*.state('shop.main', {
-            url: '/',
-            views: {
-                'main@shop': {
-                    templateUrl: 'views/main.html',
-                    // controller: 'MainController',
-                    // resolve: resolveController('/app/controllers/customersController.js'),
-                    controllerAs: 'mainCtrl',
-                    resolve: {
-                        items: function () {
-                            return 'simple!';
-                        },
-
-                    }
-                }
-            }
-        })*/
         .state('addItem', {
             url: '/items',
             templateUrl: 'views/items.html',
             controller: 'ItemController',
             controllerAs: 'itemCtrl'
 
-        })/*
-        /*
-        .state('shop.main', {
-            url: '/',
-            views: {
-                'content@shop': {
-                    templateUrl: 'views/main.html',
-                }
-            }
-        })*/
+        })
         .state('register', {
             url: '/register',
             templateUrl: 'views/register.html',

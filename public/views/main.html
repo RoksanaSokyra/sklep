@@ -1,4 +1,20 @@
-<div ng-repeat="item in mainCtrl.items track by $index">
+<!--<div ng-repeat="item in mainCtrl.items track by $index">
       
     <p>{{item.title}}</p>
+</div> -->
+
+<div id="main">
+	<div id="ads">
+		<div ui-view="slideshow"></div>
+	</div>
+<!-- ng-repeat="item in mainCtrl.items track by $index" -->
+	<div id="products">
+		<div ng-repeat="item in mainCtrl.items track by $index" class="item"> 
+			{{item.title}} </br>
+			{{item.price}}
+		</div>
+	</div>
+
 </div>
+
+
