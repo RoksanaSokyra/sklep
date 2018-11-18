@@ -5,16 +5,19 @@
         </a>
     </div>
     <div class="header_nav_icons">
-        <ul>
-            <li>
-                <a>
-                    <img />
-                    <span>0</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="header_menu">
+        <a ng-if="!headerCtrl.isLogged()" ui-sref="login">
+            <span>
+                Zaloguj sie
+            </span>
+        </a>
+        <a ng-if="headerCtrl.isLogged()">
+            <!--ui-sref="shop.profile">-->
+            <span>
+                Witaj, {{headerCtrl.user.address.name}}
+            </span>
+        </a>
+
+
         <a ui-sref="shop.cart">
             <span ng-if="!headerCtrl.cart.items.length">
                 0
@@ -23,6 +26,9 @@
                 {{ headerCtrl.cart.count }}
             </span>
         </a>
+    </div>
+    <div class="header_menu">
+
         <div ng-repeat="category in headerCtrl.categories track by $index">
             <p>{{category.title}}</p>
         </div>

@@ -12,7 +12,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 },
                 categories: function (CategoryService) {
                     return CategoryService.getCategories();
-                },
+                }
 
                 //item: function (ItemService, $stateParams) {
                   //  return ItemService.getItem($stateParams.id);
