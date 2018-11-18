@@ -4,19 +4,26 @@
         <thead>
             <tr>
                 <!--<th>produkt</th> fotka-->
-                <th>opis</th>
+                <td>opis</td>
                 <!--<th>kolor</th>-->
                 <!--<th>rozmiar-->
-                <th>ilosc</th>
-                <th>kwota</th>
-                <!--<th>usun</th>-->
+                <td>ilosc</td>
+                <td>kwota</td>
+                <td>usun</td>
             </tr>
         </thead>
         <tbody ng-repeat="item in cartCtrl.cart.items track by $index">
             <tr>
-                <th>{{item.title}}</th>
-                <th>{{item.quantity}}</th>
-                <th>{{item.sum}}</th>
+                <td>{{item.title}}</td>
+                <td>{{item.quantity}}</td>
+                <td>
+                    <span>
+                        <button ng-click="cartCtrl.subQuantity(item)"><</button>
+                        <span>{{item.sum}}</span>
+                        <button ng-click="cartCtrl.addQuantity(item)">></button>
+                    </span>
+                </td>
+                <td><button ng-click="cartCtrl.removeFromCart(item)">X</button></td>
             </tr>
         </tbody>
 

@@ -5,9 +5,19 @@ angular
 function CartController(CartService, $state) { //cart jako argument
     var vm = this;
     vm.cart = CartService.getCart();
-   // function getCart() {
-      //  return CartService.getCart();
-    //}
-    //vm.cart = cart; //czy lepiej funkcje
+    vm.addQuantity = addQuantity;
+    vm.subQuantity = subQuantity;
+    vm.removeFromCart = removeFromCart;
+
+    function addQuantity(item) {
+        CartService.addQuantity(item);
+    }
+
+    function subQuantity(item) {
+        CartService.subQuantity(item);
+    }
+    function removeFromCart(item) {
+        CartService.removeFromCart(item);
+    }
 
 }

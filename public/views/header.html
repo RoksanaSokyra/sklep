@@ -17,10 +17,10 @@
     <div class="header_menu">
         <a ui-sref="shop.cart">
             <span ng-if="!headerCtrl.cart.items.length">
-                is empty
+                0
             </span>
             <span ng-if="headerCtrl.cart.items.length">
-                {{ headerCtrl.cart.count }} items in your cart
+                {{ headerCtrl.cart.count }}
             </span>
         </a>
         <div ng-repeat="category in headerCtrl.categories track by $index">
