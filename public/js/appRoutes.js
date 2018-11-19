@@ -5,7 +5,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('shop', {
-            url: '/',
+            url: '',
             resolve: {
                 items: function (ItemService) {
                     return ItemService.getItems();
@@ -39,7 +39,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             }
         })
         .state('shop.items', {
-            url: '',
+            url: '/',
             views: {
                 'main@shop': {
                     templateUrl: 'views/main.html',
@@ -76,6 +76,36 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     templateUrl: 'views/cart.html',
                     controller: 'CartController',
                     controllerAs: 'cartCtrl'
+                }
+            }
+        })
+        .state('shop.address', {
+            url: 'address',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/deliveryAddress.html',
+                    controller: 'AddressController',
+                    controllerAs: 'addressCtrl'
+                }
+            }
+        })
+        .state('shop.deliveryAndPayment', {
+            url: 'delivery',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/deliveryAndPayment.html',
+                    controller: 'DeliveryAndPaymentController',
+                    controllerAs: 'deliveryAndPaymentCtrl'
+                }
+            }
+        })
+        .state('shop.checkout', {
+            url: 'checkout',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/checkout.html',
+                    controller: 'CheckoutController',
+                    controllerAs: 'checkoutCtrl'
                 }
             }
         })

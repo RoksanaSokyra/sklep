@@ -1,0 +1,39 @@
+
+<h1>PODSUMOWANIE</h1>
+<h2>Dane do wysylki</h2>
+<p>{{checkoutCtrl.order.address.name}} {{checkoutCtrl.order.address.surname}}</p>
+<p>{{checkoutCtrl.order.address.postalCode}} {{checkoutCtrl.order.address.city}}</p>
+<p>{{checkoutCtrl.order.address.street}} {{checkoutCtrl.order.address.number}}</p>
+<p>{{checkoutCtrl.order.address.country}}</p>
+<h2>Dostawa</h2>
+<p>{{checkoutCtrl.order.delivery}}</p>
+<h2>Forma platnosci</h2>
+<p>{{checkoutCtrl.order.payment}}</p>
+<h2>Wybrane produkty</h2>
+<table>
+    <thead>
+        <tr>
+            <!--<th>produkt</th> fotka-->
+            <td>opis</td>
+            <!--<th>kolor</th>-->
+            <!--<th>rozmiar-->
+            <td>ilosc</td>
+            <td>kwota</td>
+        </tr>
+    </thead>
+    <tbody ng-repeat="item in checkoutCtrl.cart.items track by $index">
+        <tr>
+            <td>{{item.title}}</td>
+            <td>{{item.quantity}}</td>
+            <td>
+                <span>
+                    <span>{{item.sum}}</span>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+</table>
+<button ng-click="checkoutCtrl.finalizeCheckout()">ZAMAWIAM</button>
