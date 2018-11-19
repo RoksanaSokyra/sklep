@@ -5,6 +5,7 @@ function ItemService($http) {
     service.getItems = getItems;
     service.getItem = getItem;
     service.putItem = putItem;
+    service.getItemByCategory = getItemByCategory;
 
     return service;
 
@@ -22,6 +23,13 @@ function ItemService($http) {
 
     function putItem(item) {
         return $http.post('/items/', item); //czy drugi ukosnik potrzebny
+    }
+
+    function getItemByCategory(category) {
+        return $http.get('category-items/' + category).then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
     }
 
 }

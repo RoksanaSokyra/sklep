@@ -15,6 +15,7 @@ require('./app/models/Item');
 require('./app/models/Category');
 require('./app/models/Cart');
 require('./app/models/CartItem');
+require('./app/models/Delivery');
 
 require('./config/passport-local');
 

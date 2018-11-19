@@ -30,7 +30,7 @@
     <div class="header_menu">
 
         <div ng-repeat="category in headerCtrl.categories track by $index">
-            <p>{{category.title}}</p>
+            <a ui-sref="shop.category({category: category.title})">{{category.title}}</a>
         </div>
 
     </div>

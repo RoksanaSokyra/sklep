@@ -5,7 +5,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('shop', {
-            url: '',
+            url: '/',
             resolve: {
                 items: function (ItemService) {
                     return ItemService.getItems();
@@ -13,10 +13,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 categories: function (CategoryService) {
                     return CategoryService.getCategories();
                 }
-
-                //item: function (ItemService, $stateParams) {
-                  //  return ItemService.getItem($stateParams.id);
-               // }
             },
             views: {
                 '': {
@@ -30,17 +26,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
                 },
-                /*'main@shop': {
-                    templateUrl: 'views/main.html',
-                    controller: 'MainController',
-                    controllerAs: 'mainCtrl',
-                  
-                }*/
-            }
-        })
-        .state('shop.items', {
-            url: '/',
-            views: {
                 'main@shop': {
                     templateUrl: 'views/main.html',
                     controller: 'MainController',
@@ -49,6 +34,17 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        /*.state('shop.items', {
+            url: '',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/main.html',
+                    controller: 'MainController',
+                    controllerAs: 'mainCtrl',
+
+                }
+            }
+        })*/
         .state('shop.item', {
             url: 'items/:id',
             resolve: {
@@ -61,6 +57,21 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     templateUrl: 'views/item-details.html',
                     controller: 'ItemDetailsController',
                     controllerAs: 'itemDetailsCtrl'
+                }
+            }
+        })
+        .state('shop.category', {
+            url: 'category/:category',
+            resolve: {
+                items: function (ItemService, $stateParams) {
+                    return ItemService.getItemByCategory($stateParams.category);
+                }
+            },
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/itemsByCategory.html',
+                    controller: 'ItemsByCategoryController',
+                    controllerAs: 'itemByCategoryCtrl'
                 }
             }
         })
@@ -123,16 +134,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             controllerAs: 'categoryCtrl'
 
         })
-        /*
-        /*
-        .state('shop.main', {
-            url: '/',
-            views: {
-                'content@shop': {
-                    templateUrl: 'views/main.html',
-                }
-            }
-        })*/
         .state('register', {
             url: '/register',
             templateUrl: 'views/register.html',
@@ -147,36 +148,3 @@ function routeConfig($stateProvider, $urlRouterProvider) {
         })
         
 }
-
-//function getItems(ItemsService) {
-  //  return ItemsService.getItems();
-//}
-/*
-angular.module('myApp').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-    $routeProvider
-        
-        .when('/register', {
-            templateUrl: 'views/register.html',
-            controller: 'RegisterController',
-            controllerAs: 'registerCtrl'
-        })
-        .when('/login', {
-            templateUrl: 'views/login.html',
-            controller: 'LoginController',
-            controllerAs: 'loginCtrl'
-        })
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
-}]);
-*/
-/*
-angular
-    .module('myApp')
-    .controller('MainController', MainController);
-
-function MainController($scope, items) {//, items) {//, items) {
-    var vm = this;
-   vm.items = items;
-}(/)*/

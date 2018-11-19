@@ -66,6 +66,8 @@ function CartService($http, $window) {
         var cartItem = {
             _id: item._id,
             title: item.title,
+            images: item.images,
+            imageIndex: item.imageIndex,
             price: item.price,
             quantity: 1,
             sum: item.price
