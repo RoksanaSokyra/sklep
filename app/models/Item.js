@@ -6,7 +6,7 @@ var itemSchema = new mongoose.Schema({
     size: Number,
     category: String,
     price: Number,
-    //images: Array,
+    images: Array,
     imageIndex: Number,
     quantity: Number
 });

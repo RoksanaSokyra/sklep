@@ -1,6 +1,7 @@
 <div ng-repeat="item in mainCtrl.items track by $index">
 
     <a ui-sref="shop.item({id: item._id})">
+        <img src="./img/items/{{item.images[item.imageIndex]}}" width="200" height="300">
         <p>{{item.title}}</p> 
     </a>
 </div>
