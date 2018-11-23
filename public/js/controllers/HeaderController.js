@@ -4,11 +4,14 @@ angular
 
 function HeaderController($scope, categories, CartService, LoginService, UserService) {//, items) {//, items) {
     var vm = this;
-    vm.user = getUser();
+    if (LoginService.isLogged()) {
+        vm.user = getUser();
+    }
     vm.categories = categories;
     vm.cart = CartService.getCart();
     //vm.user = UserService.getCurrentUser()
-    vm.isLogged = LoginService.isLogged; //czy funkcja normalnie
+     //czy funkcja normalnie
+     vm.isLogged = LoginService.isLogged();
 
     function getUser() {
         UserService.getCurrentUser().then(function (response) {

@@ -5,12 +5,12 @@
         </a>
     </div>
     <div class="header_nav_icons">
-        <a ng-if="!headerCtrl.isLogged()" ui-sref="login">
+        <a ng-if="!headerCtrl.isLogged" ui-sref="login">
             <span>
                 Zaloguj sie
             </span>
         </a>
-        <a ng-if="headerCtrl.isLogged()">
+        <a ng-if="headerCtrl.isLogged">
             <!--ui-sref="shop.profile">-->
             <span>
                 Witaj, {{headerCtrl.user.address.name}}
