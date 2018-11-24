@@ -1,0 +1,7 @@
+<div id="item_details">
+	<img src="./img/items/{{itemDetailsCtrl.item.images[itemDetailsCtrl.item.imageIndex]}}" width="200" height="300">
+	<p class="title">Nazwa: </p><p>{{itemDetailsCtrl.item.title}}</p>
+	<p class="title">Cene: </p><p>{{itemDetailsCtrl.item.price}} zł</p>
+	<p class="title">Opis: </p><p>{{itemDetailsCtrl.item.description}}</p>
+	<button ng-click="itemDetailsCtrl.addToCart()">add to cart</button> 
+</div>

@@ -33,11 +33,12 @@ userSchema.methods.generateJWT = function () {
     var today = new Date();
     var exp = new Date(today);
     exp.setDate(today.getDate() + 60);
-    return jwt.sign({
+    var x = jwt.sign({
         id: this._id,
-        email: this.email,
+       // email: this.email ??
         exp: parseInt(exp.getTime() / 1000)
     }, 'secret');//process.env.JWT_SECRET);//"secret");//process.env.JWT_SECRET);
+    return x;
 };
 
 var User = mongoose.model('User', userSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny

@@ -1,13 +1,16 @@
 :root {
 	--color-light: #C6DFFF;
 	--color-body: #cdeaff;
-	--color-dark: #366AAC;
+	--color-dark: #5B94DC;
 	--color-secondary: #95C4FF;
 	--color-primary: #B0D3FF;
 	
 	--text-color-primary: #001e45;
 	--text-color-secondary: #000034;
 	--text-color-hover: #307cff;
+	--text-color-hover2: #cccccc;
+	
+	--margin: 365px;
 }
 
 body {
@@ -19,8 +22,8 @@ body {
 #menu_settings {
 	background-color: var(--color-secondary);
 	margin-top: 20px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
 	position: fixed;
 	box-shadow: 0 1px 21px #8e8e8e;
 	left: 0;
@@ -38,18 +41,30 @@ div#links a {
 	padding-bottom: 10px;
 }
 
+div#links p {
+	text-decoration: none;
+	color: var(--text-color-primary);
+	float: left;
+	margin: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 div#links a:hover {
 	color: var(--text-color-hover);
 }
 
 #basket {
+	position: relative;
 	float: right;
 	background-color: var(--color-secondary);
-	width: 100px;
 }
 
 div#basket p {
-	font-size: 10px;
+	position: absolute;
+	top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #search {
@@ -73,8 +88,9 @@ input.search {
 #main {
 	background-color: var(--color-primary);
 	margin-top: 10px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+	overflow: auto;
 }
 
 #ads {
@@ -86,10 +102,23 @@ input.search {
 	background-color: var(--color-primary);
 }
 
-.item {
-	display: inline-flex;
-	margin: 10px;
-	font-size: 20px;
+.item_table p {
+	color: var(--text-color-primary);
+}
+
+.item_table a {
+	text-decoration: none;
+	color: var(--text-color-primary);
+}
+
+.item_table a:hover {
+	color: var(--text-color-hover);
+}
+
+.item_table {
+	float: left;
+	width: 30%;
+	padding: 10px;
 	text-align: center;
 }
 
@@ -98,8 +127,8 @@ input.search {
 #footer {
 	background-color: var(--color-secondary);
 	margin-top: 10px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
 	display: flex;
 }
 
@@ -134,8 +163,8 @@ th p {
 #header {
 	background-color: var(--color-body);
 	margin-top: 20px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
 }
 
 div#header img {
@@ -149,11 +178,81 @@ div#header img {
 /* MAIN_MENU */
 
 #main_menu {
-	background-color: var(--color-dark);
+	background-color: var(--color-body);
 	margin-top: 20px;
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
 }
+
+#menu_table {
+	margin: auto;
+    width: 50%;
+}
+
+.menu_item {
+	background-color: var(--color-dark);
+	border: 2px solid black;
+	text-align: center;
+	padding: 10px;
+}
+
+.menu_item a {
+	text-decoration: none;
+	color: var(--text-color-secondary);
+	font-size: 20px;
+}
+
+.menu_item a:hover {
+	color: var(--text-color-hover2);
+}
+
+/* ITEM DETAILS */
+
+#item_details {
+	background-color: var(--color-primary);
+	margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+	overflow: auto;
+}
+
+#item_details p {
+	color: var(--text-color-primary);
+	font-size: 20px;
+}
+
+#item_details img {
+	padding: 5px;
+	float: left;
+	margin: auto;
+}
+
+#item_details button {
+	float: right;
+	font-size: 20px;
+	font-size: 20px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.title {
+	color: var(--text-color-primary);
+	font-size: 25px;
+	font-weight: bold;
+}
+
+/* ITEM BY CATEGORY */
+
+#item_by_category {
+	background-color: var(--color-primary);
+	margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+	overflow: auto;
+	
+	
+}
+
 
 /* SLIDESHOW */
 

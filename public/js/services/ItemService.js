@@ -3,7 +3,9 @@ angular.module('myApp').factory('ItemService', ItemService);
 function ItemService($http) {
     var service = {}
     service.getItems = getItems;
-    //service.putItem = putItem;
+    service.getItem = getItem;
+    service.putItem = putItem;
+    service.getItemByCategory = getItemByCategory;
 
     return service;
 
@@ -12,8 +14,22 @@ function ItemService($http) {
             return response.data;
         });
     }
-    //function putItem(item) {
-     //   return $http.post('/items/', item); //czy drugi ukosnik potrzebny
-   // }
+    function getItem(id) {
+        return $http.get('items/' + id).then(function (response) {
+            console.log(response.data);
+            return response.data;
+        });
+    }
+
+    function putItem(item) {
+        return $http.post('/items/', item); //czy drugi ukosnik potrzebny
+    }
+
+    function getItemByCategory(category) {
+        return $http.get('category-items/' + category).then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
+    }
 
 }

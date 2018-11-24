@@ -3,12 +3,11 @@ var mongoose = require('mongoose');
 var itemSchema = new mongoose.Schema({
     title: String,
     discription: String,
-    size: Number,
+    stock: [{ size: Number, quantity: Number}],
     category: String,
     price: Number,
-    //images: Array,
-    imageIndex: Number,
-    quantity: Number
+    images: Array,
+    imageIndex: Number
 });
 
 var Item = mongoose.model('Item', itemSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny

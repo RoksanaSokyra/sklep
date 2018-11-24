@@ -20,9 +20,19 @@ module.exports = function (app) {
     app.get('/items', function (req, res) {
         Item.find({}, function (err, items) {
             if (err) { console.log("blad"); }
-            console.log(items);
             res.json(items);
         });
     });
-
+    app.get('/items/:id', function (req, res) {
+        Item.findById(req.params.id, function (err, item) {
+            if (err) { console.log("blad tutej"); }
+            res.json(item);
+        });
+    });
+    app.get('/category-items/:category', function (req, res) {
+        Item.find({category: req.params.category}, function (err, items) {
+            if (err) { console.log("blad"); }
+            res.json(items);
+        });
+    });
 };

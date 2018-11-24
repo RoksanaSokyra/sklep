@@ -14,6 +14,6 @@ function RegisterController(RegisterService, $state) {
 
     function register() {
         RegisterService.register(vm.user);
-        $state.go('shop.main');
+        $state.go('shop.items');
     }
 }

@@ -20,21 +20,6 @@ module.exports = function (app) {
             return res.json({ token: user.generateJWT() });
         })(req, res, next);
     });
-    /*app.get('/post', function (req, res,next) {
-        console.log('a');
-        passport.authenticate('local', function (err, user, done) {
-            if (err || !user) {
-                console.log(err);
-                console.log(user);
-                console.log(done);
-                return res.status(400).json({
-                    message: 'Something is not right',
-                    user: user
-                });
-            }
-            return res.json({ token: user.generateJWT() });
-        })(req, res, next);
-    });*/
 
 };
 

@@ -14,14 +14,11 @@ function ItemController(ItemService, $state) {
         mainImageIndex: 0,
         quantity: 0
     };
-    //vm.getItems = getItems;
-    vm.putItem = putItem;
 
-    //function getItems() {
-     //   return ItemService.getItems();
-    //}
+    vm.putItem = putItem;
 
     function putItem() {
         ItemService.putItem(vm.item);
+        $state.go('shop.items');
     }
 }

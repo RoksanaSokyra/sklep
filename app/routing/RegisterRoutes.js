@@ -11,6 +11,7 @@ module.exports = function (app) {
         user.email = req.body.email;
         user.address.name = req.body.name;
         user.address.surname = req.body.surname;
+
         user.setPassword(req.body.password);
         user.save();
         return res.json({

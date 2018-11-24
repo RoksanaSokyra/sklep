@@ -1,19 +1,34 @@
-<!--<div ng-repeat="item in mainCtrl.items track by $index">
-      
-    <p>{{item.title}}</p>
-</div> -->
-
 <div id="main">
 	<div id="ads">
 		<div ui-view="slideshow"></div>
 	</div>
-<!-- ng-repeat="item in mainCtrl.items track by $index" -->
+
+	<!-- LISTA -->
+	<!--<div id="products">
+		<table id="item_table">
+			<tr>
+				<th> </th>
+				<th> Nazwa </th>
+				<th> Cena </th>
+			</tr>
+			
+			<tr ng-repeat="item in mainCtrl.items track by $index" class="item">
+				<td><img src="./img/items/{{item.images[item.imageIndex]}}" width="200" height="300"></td>
+				<td> <a ui-sref="shop.item({id: item._id})"> {{item.title}} </a></td>
+				<td> {{item.price}} zł</td>
+			<tr>
+		<table>
+	</div>-->
+	
+	<!-- div with float -->
 	<div id="products">
-		<div ng-repeat="item in mainCtrl.items track by $index" class="item"> 
-			{{item.title}} </br>
-			{{item.price}}
-		</div>
+		<div class="item_table" ng-repeat="item in mainCtrl.items track by $index">			
+			<img src="./img/items/{{item.images[item.imageIndex]}}" width="200" height="300"></br>
+			<a ui-sref="shop.item({id: item._id})"> {{item.title}} </a></br>
+			{{item.price}} zł</br>
+		<div>
 	</div>
+	
 
 </div>
 

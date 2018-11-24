@@ -1,0 +1,47 @@
+<h1>KOSZYK</h1>
+<form>
+    <table>
+        <thead>
+            <tr>
+                <td>produkt</td> 
+                <td>opis</td>
+                <!--<th>kolor</th>-->
+                <!--<th>rozmiar-->
+                <td>ilosc</td>
+                <td>kwota</td>
+                <td>usun</td>
+            </tr>
+        </thead>
+        <tbody ng-repeat="item in cartCtrl.cart.items track by $index">
+            <tr>
+                <td><img src="./img/items/{{item.images[item.imageIndex]}}" width="50" height="80"></td>
+                <td>{{item.title}}</td>
+                <td>{{item.quantity}}</td>
+                <td>
+                    <span>
+                        <button ng-click="cartCtrl.subQuantity(item)"><</button>
+                        <span>{{item.sum}}</span>
+                        <button ng-click="cartCtrl.addQuantity(item)">></button>
+                    </span>
+                </td>
+                <td><button ng-click="cartCtrl.removeFromCart(item)">X</button></td>
+            </tr>
+        </tbody>
+        <!--<tfoot>
+            <tr>
+                <th>Kwota zamowienia: </th>
+                <td>{{cartCtrl.sum}} PLN</td>
+             <th><button></button></th> {{cartCtrl.removeItem(item)}}
+            </tr>
+            <tr>
+                <th>Koszt wysylki: </th>
+                <td>0 PLN</td>
+            </tr>
+            <tr>
+                <th>Razem: </th>
+                <td>0 PLN</td>
+            </tr>
+        </tfoot>-->
+    </table>
+    <button ui-sref="shop.address">CHECKOUT</button>
+</form>
