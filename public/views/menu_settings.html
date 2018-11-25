@@ -12,7 +12,10 @@
         </a>
         <a ng-if="headerCtrl.isLogged">
 			Witaj {{headerCtrl.user.address.name}}
-        </a>		
+        </a>	
+        <button type="submit" ng-if="headerCtrl.isLogged" ng-click="headerCtrl.logout">
+			Wyloguj
+        </button>			
 	</div>
 
 	<div id="basket"> 

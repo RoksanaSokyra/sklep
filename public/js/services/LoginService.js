@@ -4,6 +4,7 @@ function LoginService(TokenService, $http) {
 	var service = {}
 	service.login = login;
     service.isLogged = isLogged;
+	service.logout = logout;
 	return service;
 
 	function login(user) {
@@ -18,5 +19,10 @@ function LoginService(TokenService, $http) {
         if (TokenService.getToken()) return true;
         else return false;
     }
+	
+	function logout() {
+		console.log("logout");
+		TokenService.deleteToken();
+	}
 
 }
