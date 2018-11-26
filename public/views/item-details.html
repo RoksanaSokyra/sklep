@@ -1,4 +1,7 @@
 <p>{{itemDetailsCtrl.item.title}}</p>
 <p>{{itemDetailsCtrl.item.price}}</p>
 <p>{{itemDetailsCtrl.item.description}}</p>
+<div ng-repeat="item in itemDetailsCtrl.item.stock track by $index">
+    <p>{{item.size}}</p>
+</div>
 <button ng-click="itemDetailsCtrl.addToCart()">add to cart</button> 

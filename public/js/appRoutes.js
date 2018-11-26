@@ -34,17 +34,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        /*.state('shop.items', {
-            url: '',
-            views: {
-                'main@shop': {
-                    templateUrl: 'views/main.html',
-                    controller: 'MainController',
-                    controllerAs: 'mainCtrl',
-
-                }
-            }
-        })*/
         .state('shop.item', {
             url: 'items/:id',
             resolve: {
@@ -137,16 +126,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        /*.state('shop.checkout', {
-            url: 'checkout',
-            views: {
-                'main@shop': {
-                    templateUrl: 'views/checkout.html',
-                    controller: 'CheckoutController',
-                    controllerAs: 'checkoutCtrl'
-                }
-            }
-        })*/
         .state('addItem', {
             url: '/items',
             templateUrl: 'views/items.html',
