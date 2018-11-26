@@ -1,6 +1,8 @@
 
 module.exports = function (app) {
 
+
+    require('./routing/OrderRoutes')(app);
     require('./routing/DeliveryRoutes')(app);
     require('./routing/LoginRoutes')(app);
     require('./routing/CartRoutes')(app);
