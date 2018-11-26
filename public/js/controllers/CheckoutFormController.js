@@ -20,7 +20,7 @@ function CheckoutFormController($state, OrderService, CartService, LoginService,
     function isAddressAdded() {
         UserService.getCurrentUser().then(function (response) {
             vm.address = response.data.address;
-            if (response.data.address.street == "") {
+            if (response.data.address.street != "") {
                 $state.go('shop.checkout.deliveryAndPayment');
             }
             else {

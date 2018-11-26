@@ -1,7 +1,9 @@
-<p>{{itemDetailsCtrl.item.title}}</p>
-<p>{{itemDetailsCtrl.item.price}}</p>
-<p>{{itemDetailsCtrl.item.description}}</p>
-<select >
-    <option ng-repeat="item in itemDetailsCtrl.item.stock track by $index" ng-if="item.quantity != 0">{{item.size}}</option>
-</select>
-<button ng-click="itemDetailsCtrl.addToCart()">add to cart</button> 
+<div id="item_details">
+    <p>{{itemDetailsCtrl.item.title}}</p>
+    <p>{{itemDetailsCtrl.item.price}}</p>
+    <p>{{itemDetailsCtrl.item.description}}</p>
+    <select>
+        <option ng-repeat="item in itemDetailsCtrl.item.stock track by $index" ng-if="item.quantity != 0">{{item.size}}</option>
+    </select>
+    <button ng-click="itemDetailsCtrl.addToCart()">add to cart</button>
+</div>

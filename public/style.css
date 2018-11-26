@@ -1,0 +1,407 @@
+:root {
+    --color-light: #C6DFFF;
+    --color-body: #cdeaff;
+    --color-dark: #5B94DC;
+    --color-secondary: #95C4FF;
+    --color-primary: #B0D3FF;
+    --text-color-primary: #001e45;
+    --text-color-secondary: #000034;
+    --text-color-hover: #307cff;
+    --text-color-hover2: #cccccc;
+    /*--margin: 365px;*/
+}
+
+body {
+    background-color: var(--color-body);
+}
+
+/* MENU_SETTINGS */
+
+#menu_settings {
+    background-color: var(--color-secondary);
+    /*margin-top: 20px; */
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    /*position: fixed;*/
+    box-shadow: 0 1px 21px #8e8e8e;
+    left: 0;
+    right: 0;
+    /* for test */
+    /*visibility: hidden; */
+}
+
+div#links a {
+    text-decoration: none;
+    color: var(--text-color-primary);
+    float: left;
+    margin: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div#links p {
+    text-decoration: none;
+    color: var(--text-color-primary);
+    float: left;
+    margin: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+div#links a:hover {
+    color: var(--text-color-hover);
+}
+
+#basket {
+    position: relative;
+    float: right;
+    background-color: var(--color-secondary);
+}
+
+div#basket p {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#search {
+    background-color: var(--color-secondary);
+    float: right;
+    padding: 5px;
+}
+
+    #search input {
+        float: left;
+    }
+
+input.search {
+    width: 20px;
+    height: 20px;
+    padding-left: 4px;
+}
+
+/* MAIN */
+
+#main {
+    background-color: var(--color-primary);
+    margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    overflow: auto;
+}
+
+#ads {
+    background-color: var(--color-primary);
+    margin: 10px;
+}
+
+#products {
+    background-color: var(--color-primary);
+}
+
+.item_table p {
+    color: var(--text-color-primary);
+}
+
+.item_table a {
+    text-decoration: none;
+    color: var(--text-color-primary);
+}
+
+    .item_table a:hover {
+        color: var(--text-color-hover);
+    }
+
+.item_table {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+}
+
+/* FOOTER */
+
+#footer {
+    background-color: var(--color-secondary);
+    margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    display: flex;
+}
+
+.footer {
+    width: 50%;
+    float: left;
+}
+
+div.footer p {
+    color: var(--text-color-secondary);
+    
+    font-size: 14px;
+    margin: 2px;
+    text-align: center;
+}
+
+td p {
+    color: var(--text-color-primary);
+    font-size: 14px;
+    margin: 2px;
+    text-align: center;
+}
+
+th p {
+    color: var(--text-color-secondary);
+    font-size: 14px;
+    margin: 2px;
+    text-align: center;
+}
+
+/* HEADER */
+
+#header {
+    background-color: var(--color-body);
+    /*margin-top: 20px;*/
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+}
+
+div#header img {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+    max-width: 100%;
+    height: 250px;
+}
+
+/* MAIN_MENU */
+
+#main_menu {
+    background-color: var(--color-body);
+    /*margin-top: 20px;*/
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+}
+
+#menu_table {
+    margin: auto;
+    width: 50%;
+}
+
+.menu_item {
+    background-color: var(--color-dark);
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+    .menu_item a {
+        text-decoration: none;
+        color: var(--text-color-secondary);
+        font-size: 20px;
+    }
+
+        .menu_item a:hover {
+            color: var(--text-color-hover2);
+        }
+
+/* ITEM DETAILS */
+
+#item_details {
+    background-color: var(--color-primary);
+    margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    overflow: auto;
+}
+
+    #item_details p {
+        color: var(--text-color-primary);
+        font-size: 20px;
+    }
+
+    #item_details img {
+        padding: 5px;
+        float: left;
+        margin: auto;
+    }
+
+    #item_details button {
+        float: right;
+        font-size: 20px;
+        font-size: 20px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+.title {
+    color: var(--text-color-primary);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* ITEM BY CATEGORY */
+
+#item_by_category {
+    background-color: var(--color-primary);
+    margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    overflow: auto;
+}
+
+/* CART */
+
+#cart {
+    background-color: var(--color-primary);
+    margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    overflow: auto;
+}
+
+    #cart button {
+        font-size: 20px;
+        font-size: 20px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    #cart th {
+        text-align: center;
+        font-size: 20px;
+        color: var(--text-color-primary);
+        margin: 15px;
+        padding: 5px;
+    }
+
+    #cart td {
+        text-align: center;
+        font-size: 20px;
+        color: var(--text-color-primary);
+        margin: 15px;
+        padding: 5px;
+    }
+
+/* REGISTER */
+
+#register {
+    background-color: var(--color-primary);
+    margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    overflow: auto;
+}
+
+    #register button {
+        font-size: 20px;
+        font-size: 20px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    #register input {
+        margin: 5px;
+    }
+
+/* LOGIN */
+
+#login {
+    background-color: var(--color-primary);
+    margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+    overflow: auto;
+}
+
+    #login button {
+        font-size: 20px;
+        font-size: 20px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    #login input {
+        margin: 5px;
+    }
+
+/* SLIDESHOW */
+
+.mySlides {
+    display: none;
+}
+
+#ads img {
+    vertical-align: middle;
+    height: 150px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Caption text */
+.text {
+    color: #000000;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #000000;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}

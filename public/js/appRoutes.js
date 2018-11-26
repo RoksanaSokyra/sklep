@@ -20,8 +20,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 },
                 'header@shop': {
                     templateUrl: 'views/header.html',
-                   controller: 'HeaderController',
-                    controllerAs: 'headerCtrl',
                 },
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
@@ -31,6 +29,19 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     controller: 'MainController',
                     controllerAs: 'mainCtrl',
 
+                },
+                'slideshow@shop': {
+                    templateUrl: 'views/slideshow.html',
+                },
+                'menu_settings@shop': {
+                    templateUrl: 'views/menu_settings.html',
+                    controller: 'HeaderController',
+                    controllerAs: 'headerCtrl',
+                },
+                'main_menu@shop': {
+                    templateUrl: 'views/main_menu.html',
+                    controller: 'MenuController',
+                    controllerAs: 'menuCtrl',
                 }
             }
         })
@@ -140,17 +151,25 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             controllerAs: 'categoryCtrl'
 
         })
-        .state('register', {
-            url: '/register',
-            templateUrl: 'views/register.html',
-            controller: 'RegisterController',
-            controllerAs: 'registerCtrl'
+        .state('shop.register', {
+            url: 'register',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/register.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'registerCtrl'
+                }
+            }
         })
-        .state('login', {
-            url: '/login',
-            templateUrl: 'views/login.html',
-            controller: 'LoginController',
-            controllerAs: 'loginCtrl'
+        .state('shop.login', {
+            url: 'login',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/login.html',
+                    controller: 'LoginController',
+                    controllerAs: 'loginCtrl'
+                }
+            }
         })
         .state('shop.userPannel', {
             url: 'welcome',

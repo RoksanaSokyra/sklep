@@ -1,7 +1,11 @@
-<div ng-repeat="item in itemByCategoryCtrl.items track by $index">
-
-    <a ui-sref="shop.item({id: item._id})">
-        <img src="./img/items/{{item.images[item.imageIndex]}}" width="200" height="300">
-        <p>{{item.title}}</p>
-    </a>
-</div>
+<div id="item_by_category">
+    <div id="products">
+        <div class="item_table" ng-repeat="item in itemByCategoryCtrl.items track by $index">
+            <a ui-sref="shop.item({id: item._id})">
+                <img src="./img/items/{{item.images[item.imageIndex]}}" width="200" height="300">
+            </a></br>
+            <a ui-sref="shop.item({id: item._id})"> {{item.title}} </a></br>
+            {{item.price}} z³</br>
+            <div>
+            </div>
+        </div>

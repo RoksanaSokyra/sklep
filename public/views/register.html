@@ -1,16 +1,18 @@
-<form>
-
-    <input type="text"
-           placeholder="Email *"
-           ng-model="registerCtrl.user.email">
-    <input type="text"
-           placeholder="Name *"
-           ng-model="registerCtrl.user.name">
-    <input type="text"
-           placeholder="Surname *"
-           ng-model="registerCtrl.user.surname">
-    <input type="password"
-           placeholder="Password *"
-           ng-model="registerCtrl.user.password">
-    <button type="submit" ng-click="registerCtrl.register()"> Register </button>
-</form>
+<div id="register">
+    <h1>Rejestracja</h1>
+    <form>
+        <input type="text"
+               placeholder="Email *"
+               ng-model="registerCtrl.user.email">
+        <input type="text"
+               placeholder="Name *"
+               ng-model="registerCtrl.user.name">
+        <input type="text"
+               placeholder="Surname *"
+               ng-model="registerCtrl.user.surname">
+        <input type="password"
+               placeholder="Password *"
+               ng-model="registerCtrl.user.password">
+        <button type="submit" ng-click="registerCtrl.register()"> Register </button>
+    </form>
+</div>
