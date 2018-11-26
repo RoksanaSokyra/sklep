@@ -8,11 +8,8 @@ function CartService($http, $window) {
     service.addQuantity = addQuantity;
     service.subQuantity = subQuantity;
     service.removeFromCart = removeFromCart;
-    var cart = initCart();//{
-       // items: [],// [CartItemSchema],
-        //count: 0,
-        //summary: 0
-    //}
+    service.emptyCart = emptyCart;
+    var cart = initCart();
     return service;
 
 
@@ -25,16 +22,10 @@ function CartService($http, $window) {
     
 
     function getCart() {
-        return cart;//return JSON.parse($window.localStorage.getItem('cart'));
+        return cart;
     }
 
     function createCart() {
-        //var c = {
-         //   items: [],// [CartItemSchema],
-         //   count: 0,
-         //   summary: 0
-       // };
-        //cart = c;
         $window.localStorage.setItem('cart', JSON.stringify(cart));
     }
 
@@ -92,56 +83,26 @@ function CartService($http, $window) {
 
 
     function addItemToExistingCart(item) {
-       // itemAlreadyInCart = false;
-       // console.log(cart);
-       // var cart = getCart();
-        /*cart.items.forEach(function (i) {
-            if (i._id == item._id) {
-                itemAlreadyInCart = true;
-                i.quantity += 1;
-                i.sum += item.price;
-            }
-        });*/
-        //var itemAlreadyInCart = updateItemInCart(item, 'sum');
         
         if (!increaseItemQuantity(item)) {
-           /*var cartItem = makeNewCartItem(item); /*{
-                _id: item._id, 
-                title: item.title,
-                price: item.price,
-                quantity: 1,
-                sum: item.price
-            }*/
-            cart.items.push(makeNewCartItem(item));
+           cart.items.push(makeNewCartItem(item));
         }
         updateCartValues(item, 'add');
-       // cart.count += 1; 
-       // cart.sum += item.price;
-      //  $window.localStorage.setItem('cart', JSON.stringify(cart));
-        
+             
     }
 
     function addQuantity(item) {
-        // updateItemInCart(item, 'add');
         if (increaseItemQuantity(item)) {
             updateCartValues(item, 'add');
-        }
-        //cart.count += 1;
-        //cart.sum += item.price;
-        //$window.localStorage.setItem('cart', JSON.stringify(cart));
-    }
+        }  }
 
     function subQuantity(item) {
         if (decreaceItemQuantity(item)) {
             updateCartValues(item, 'sub');
         }
-        ///cart.count -= 1;
-        //cart.sum -= item.price;
-        //$window.localStorage.setItem('cart', JSON.stringify(cart));
-    }
+     }
 
     function addToCart(item) { 
-        //$window.localStorage.removeItem('cart')
         if ($window.localStorage.getItem('cart')) {
             addItemToExistingCart(item);
         }
@@ -150,11 +111,6 @@ function CartService($http, $window) {
             addItemToExistingCart(item);
         }
 
-        /*{id: item._id, size: it}*/
-        /*$http.post('/add-to-cart', item).then(function (response) { //response.data mozna zamienic n data.data?
-            //    return response.data;
-
-        });*/ //przypadek dla zalogowanego uzytkownika
     }
 
     function removeFromCart(item) {
@@ -166,5 +122,9 @@ function CartService($http, $window) {
                 $window.localStorage.setItem('cart', JSON.stringify(cart));
             }
         });
+    }
+    function emptyCart() {
+        cart.items.splice(0, cart.items.length);
+        $window.localStorage.setItem('cart', JSON.stringify(cart));
     }
 }

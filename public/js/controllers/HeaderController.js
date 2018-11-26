@@ -9,9 +9,7 @@ function HeaderController($scope, categories, CartService, LoginService, UserSer
     }
     vm.categories = categories;
     vm.cart = CartService.getCart();
-    //vm.user = UserService.getCurrentUser()
-     //czy funkcja normalnie
-    vm.isLogged = LoginService.isLogged();
+    vm.status = LoginService.getStatus();
 
     function getUser() {
         UserService.getCurrentUser().then(function (response) {

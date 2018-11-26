@@ -152,5 +152,23 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             controller: 'LoginController',
             controllerAs: 'loginCtrl'
         })
+        .state('shop.userPannel', {
+            url: 'welcome',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/userPanel.html',
+                    controller: 'UserController',
+                    controllerAs: 'userCtrl'
+                }
+            }
+        })
+        .state('shop.userPannel.address', {
+           // views: {
+               // 'content@shop.userPannel': {
+                    url: '/address',
+                    templateUrl: 'views/userAddress.html'
+             //   }
+           // }
+        })
         
 }
