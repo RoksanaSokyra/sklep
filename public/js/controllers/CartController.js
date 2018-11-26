@@ -24,10 +24,10 @@ function CartController(CartService, UserService, TokenService, LoginService, $s
         if (LoginService.isLogged()) {
             UserService.getCurrentUser().then(function (response) {
                 if (response.data.address.street != "") {
-                    $state.go('shop.deliveryAndPayment');
+                    $state.go('shop.checkout.deliveryAndPayment');
                 }
                 else {
-                    $state.go('shop.address');
+                    $state.go('shop.checkout.address');
                 }
             });
 

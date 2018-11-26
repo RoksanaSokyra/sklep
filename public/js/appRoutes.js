@@ -178,6 +178,9 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     templateUrl: 'views/userPanel.html',
                     controller: 'UserController',
                     controllerAs: 'userCtrl'
+                },
+				'address@shop': {
+					templateUrl: 'views/userAddress.html'
                 }
             }
         })

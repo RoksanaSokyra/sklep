@@ -1,16 +1,16 @@
 <div id="menu_settings">
 	<div id="links">
-		<a ng-if="!headerCtrl.isLogged" ui-sref="shop.register">
+		<a ng-if="!headerCtrl.status.value" ui-sref="shop.register">
             <span>
                 Zarejestruj się
             </span>
         </a>
-		<a ng-if="!headerCtrl.isLogged" ui-sref="shop.login">
+		<a ng-if="!headerCtrl.status.value" ui-sref="shop.login">
             <span>
                 Zaloguj się
             </span>
         </a>
-        <a ng-if="headerCtrl.isLogged">
+        <a ng-if="headerCtrl.status.value" ui-sref="shop.userPannel.address">
 			Witaj {{headerCtrl.user.address.name}}
         </a>	
         <!--<button type="submit" ng-if="headerCtrl.isLogged" ng-click="headerCtrl.logout">
