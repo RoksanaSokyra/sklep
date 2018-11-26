@@ -75,6 +75,33 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('shop.checkout', {
+            url: 'checkout',
+            resolve: {
+                delivery: function (DeliveryService) {
+                    return DeliveryService.getDeliveries();
+                }
+            },
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/checkoutForm.html',
+                    controller: 'CheckoutFormController',
+                    controllerAs: 'checkoutCtrl'
+                }
+            }
+        })
+        .state('shop.checkout.address', {
+            url: '/address',
+            templateUrl: 'views/checkoutFormAddress.html'
+        })
+        .state('shop.checkout.deliveryAndPayment', {
+            url: '/delivery',
+            templateUrl: 'views/checkoutFormPaymentAndDelivery.html'
+        })
+        .state('shop.checkout.summary', {
+            url: '/summary',
+            templateUrl: 'views/checkoutFormSummary.html'
+        })
         .state('shop.cart', {
             url: 'cart',
             resolve: {
@@ -110,7 +137,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('shop.checkout', {
+        /*.state('shop.checkout', {
             url: 'checkout',
             views: {
                 'main@shop': {
@@ -119,7 +146,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     controllerAs: 'checkoutCtrl'
                 }
             }
-        })
+        })*/
         .state('addItem', {
             url: '/items',
             templateUrl: 'views/items.html',

@@ -8,8 +8,6 @@ function LoginService(TokenService, $http) {
 
 	function login(user) {
         return $http.post('/login', user).then(function (res) {
-            //console.log(data.token);
-            console.log("login service token: " + res.data.token);
 			TokenService.saveToken(res.data.token);
 		});
     }

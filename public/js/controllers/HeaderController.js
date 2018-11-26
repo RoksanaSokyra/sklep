@@ -11,7 +11,7 @@ function HeaderController($scope, categories, CartService, LoginService, UserSer
     vm.cart = CartService.getCart();
     //vm.user = UserService.getCurrentUser()
      //czy funkcja normalnie
-     vm.isLogged = LoginService.isLogged();
+    vm.isLogged = LoginService.isLogged();
 
     function getUser() {
         UserService.getCurrentUser().then(function (response) {

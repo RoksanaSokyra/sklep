@@ -4,6 +4,7 @@ angular.module('myApp').factory('UserService', UserService);
 function UserService(TokenService, $http, $window) {
     var service = {}
     service.getCurrentUser = getCurrentUser;
+    service.updateUserAddress = updateUserAddress;
     return service;
 
     function getCurrentUser() {
@@ -12,7 +13,9 @@ function UserService(TokenService, $http, $window) {
         return $http.get('users/' + payload.id).then(function (response) {
             return response;
         });
-        
+    }
+    function updateUserAddress() {
+        //dodaj adres do uzytkownika
     }
 
 }
