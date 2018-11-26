@@ -284,6 +284,48 @@ div#header img {
 	padding: 5px;
 }
 
+/* REGISTER */
+
+#register {
+	background-color: var(--color-primary);
+	margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+	overflow: auto;
+}
+
+#register button {
+	font-size: 20px;
+	font-size: 20px;
+	padding: 5px;
+	margin: 5px; 
+}
+
+#register input {
+	margin: 5px; 
+}
+
+/* LOGIN */
+
+#login {
+	background-color: var(--color-primary);
+	margin-top: 10px;
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+	overflow: auto;
+}
+
+#login button {
+	font-size: 20px;
+	font-size: 20px;
+	padding: 5px;
+	margin: 5px; 
+}
+
+#login input {
+	margin: 5px; 
+}
+
 /* SLIDESHOW */
 
 .mySlides {

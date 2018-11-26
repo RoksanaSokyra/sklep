@@ -1,9 +1,12 @@
-<form>
-    <input type="text"
-           placeholder="Email"
-           ng-model="loginCtrl.user.email">
-    <input type="password"
-           placeholder="Password"
-           ng-model="loginCtrl.user.password">
-    <button type="submit" ng-click="loginCtrl.login()"> Login </button>
-</form>
+<div id="login">
+	<h1>Login</h1>
+	<form>
+		<input type="text"
+			   placeholder="Email"
+			   ng-model="loginCtrl.user.email">
+		<input type="password"
+			   placeholder="Password"
+			   ng-model="loginCtrl.user.password"></br>
+		<button type="submit" ng-click="loginCtrl.login()"> Login </button>
+	</form>
+</div>

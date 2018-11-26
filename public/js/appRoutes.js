@@ -133,17 +133,25 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             controllerAs: 'categoryCtrl'
 
         })
-        .state('register', {
-            url: '/register',
-            templateUrl: 'views/register.html',
-            controller: 'RegisterController',
-            controllerAs: 'registerCtrl'
+        .state('shop.register', {
+            url: 'register',
+			views: {
+				'main@shop': {
+					templateUrl: 'views/register.html',
+					controller: 'RegisterController',
+					controllerAs: 'registerCtrl'
+				}
+			}
         })
-        .state('login', {
-            url: '/login',
-            templateUrl: 'views/login.html',
-            controller: 'LoginController',
-            controllerAs: 'loginCtrl'
+        .state('shop.login', {
+            url: 'login',
+			views: {
+				'main@shop': {
+					templateUrl: 'views/login.html',
+					controller: 'LoginController',
+					controllerAs: 'loginCtrl'
+				}
+			}
         })
         
 }
