@@ -1,19 +1,9 @@
-//var User = require('./models/User');
-//var mongoose = require('mongoose');
-//var User = mongoose.model('User');
-//var passport = require('passport');
 
 module.exports = function (app) {
-	
 
-   /* app.get('/', function (req, res) {
-        Item.find({}, function (err, items) {
-            if (err) { console.log("blad"); }
-            console.log('jestem tutaj');
-            console.log(items);
-            res.json(items);
-        });
-    });*/
+
+    require('./routing/OrderRoutes')(app);
+    require('./routing/DeliveryRoutes')(app);
     require('./routing/LoginRoutes')(app);
     require('./routing/CartRoutes')(app);
     require('./routing/RegisterRoutes')(app);

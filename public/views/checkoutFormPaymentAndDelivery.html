@@ -1,0 +1,9 @@
+<div id="paymentMethod">
+	<p>Dostawa: </p>
+	<div ng-repeat="delivery in checkoutCtrl.deliveryOptions track by $index">
+		<label><input type="radio" ng-model="checkoutCtrl.delivery" ng-value="delivery">{{delivery.title}}</label>
+	</div>
+	<p>Forma Płatności: </p>
+	<label><input type="radio" ng-model="checkoutCtrl.paymentMethod" [checked]="true"  value="platnosc przy odbiorze"/> platnosc przy odbiorze </label></br>
+	<button ui-sref="shop.checkout.summary">summary</button>
+</div>

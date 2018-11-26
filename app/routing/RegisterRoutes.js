@@ -11,7 +11,11 @@ module.exports = function (app) {
         user.email = req.body.email;
         user.address.name = req.body.name;
         user.address.surname = req.body.surname;
-
+        user.address.street = "";
+        user.address.number = null;
+        user.address.postCode = "";
+        user.address.city = "";
+        user.address.country = "";
         user.setPassword(req.body.password);
         user.save();
         return res.json({

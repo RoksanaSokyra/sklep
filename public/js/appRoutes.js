@@ -10,7 +10,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 items: function (ItemService) {
                     return ItemService.getItems();
                 },
-				categories: function (CategoryService) {
+                categories: function (CategoryService) {
                     return CategoryService.getCategories();
                 }
             },
@@ -24,24 +24,25 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
                 },
-				'menu_settings@shop': {
-                    templateUrl: 'views/menu_settings.html',
-					controller: 'HeaderController',
-                    controllerAs: 'headerCtrl',
-                },
-				'main_menu@shop': {
-                    templateUrl: 'views/main_menu.html',
-					controller: 'MenuController',
-                    controllerAs: 'menuCtrl',
-                },
                 'main@shop': {
                     templateUrl: 'views/main.html',
                     controller: 'MainController',
                     controllerAs: 'mainCtrl',
+
                 },
-				'slideshow@shop': {
-					templateUrl: 'views/slideshow.html',
-				}
+                'slideshow@shop': {
+                    templateUrl: 'views/slideshow.html',
+                },
+                'menu_settings@shop': {
+                    templateUrl: 'views/menu_settings.html',
+                    controller: 'HeaderController',
+                    controllerAs: 'headerCtrl',
+                },
+                'main_menu@shop': {
+                    templateUrl: 'views/main_menu.html',
+                    controller: 'MenuController',
+                    controllerAs: 'menuCtrl',
+                }
             }
         })
         .state('shop.item', {
@@ -73,6 +74,33 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     controllerAs: 'itemByCategoryCtrl'
                 }
             }
+        })
+        .state('shop.checkout', {
+            url: 'checkout',
+            resolve: {
+                delivery: function (DeliveryService) {
+                    return DeliveryService.getDeliveries();
+                }
+            },
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/checkoutForm.html',
+                    controller: 'CheckoutFormController',
+                    controllerAs: 'checkoutCtrl'
+                }
+            }
+        })
+        .state('shop.checkout.address', {
+            url: '/address',
+            templateUrl: 'views/checkoutFormAddress.html'
+        })
+        .state('shop.checkout.deliveryAndPayment', {
+            url: '/delivery',
+            templateUrl: 'views/checkoutFormPaymentAndDelivery.html'
+        })
+        .state('shop.checkout.summary', {
+            url: '/summary',
+            templateUrl: 'views/checkoutFormSummary.html'
         })
         .state('shop.cart', {
             url: 'cart',
@@ -109,16 +137,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('shop.checkout', {
-            url: 'checkout',
-            views: {
-                'main@shop': {
-                    templateUrl: 'views/checkout.html',
-                    controller: 'CheckoutController',
-                    controllerAs: 'checkoutCtrl'
-                }
-            }
-        })
         .state('addItem', {
             url: '/items',
             templateUrl: 'views/items.html',
@@ -135,23 +153,41 @@ function routeConfig($stateProvider, $urlRouterProvider) {
         })
         .state('shop.register', {
             url: 'register',
-			views: {
-				'main@shop': {
-					templateUrl: 'views/register.html',
-					controller: 'RegisterController',
-					controllerAs: 'registerCtrl'
-				}
-			}
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/register.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'registerCtrl'
+                }
+            }
         })
         .state('shop.login', {
             url: 'login',
-			views: {
-				'main@shop': {
-					templateUrl: 'views/login.html',
-					controller: 'LoginController',
-					controllerAs: 'loginCtrl'
-				}
-			}
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/login.html',
+                    controller: 'LoginController',
+                    controllerAs: 'loginCtrl'
+                }
+            }
+        })
+        .state('shop.userPannel', {
+            url: 'welcome',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/userPanel.html',
+                    controller: 'UserController',
+                    controllerAs: 'userCtrl'
+                }
+            }
+        })
+        .state('shop.userPannel.address', {
+           // views: {
+               // 'content@shop.userPannel': {
+                    url: '/address',
+                    templateUrl: 'views/userAddress.html'
+             //   }
+           // }
         })
         
 }

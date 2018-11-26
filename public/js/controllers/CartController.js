@@ -2,13 +2,13 @@ angular
     .module('myApp')
     .controller('CartController', CartController);
 
-function CartController(CartService, $state) { //cart jako argument
+function CartController(CartService, UserService, TokenService, LoginService, $state) { //cart jako argument
     var vm = this;
     vm.cart = CartService.getCart();
     vm.addQuantity = addQuantity;
     vm.subQuantity = subQuantity;
     vm.removeFromCart = removeFromCart;
-
+    vm.checkIfAddressAdded = checkIfAddressAdded;
     function addQuantity(item) {
         CartService.addQuantity(item);
     }
@@ -18,6 +18,24 @@ function CartController(CartService, $state) { //cart jako argument
     }
     function removeFromCart(item) {
         CartService.removeFromCart(item);
+    }
+
+    function checkIfAddressAdded() {
+        if (LoginService.isLogged()) {
+            UserService.getCurrentUser().then(function (response) {
+                if (response.data.address.street != "") {
+                    $state.go('shop.deliveryAndPayment');
+                }
+                else {
+                    $state.go('shop.address');
+                }
+            });
+
+        }
+        else {
+            $state.go("shop.login");
+        }
+        /*$state.go("shop.checkout");*/
     }
 
 }

@@ -1,7 +1,14 @@
 <div id="item_details">
-	<img src="./img/items/{{itemDetailsCtrl.item.images[itemDetailsCtrl.item.imageIndex]}}" width="200" height="300">
-	<p class="title">Nazwa: </p><p>{{itemDetailsCtrl.item.title}}</p>
-	<p class="title">Cene: </p><p>{{itemDetailsCtrl.item.price}} zł</p>
-	<p class="title">Opis: </p><p>{{itemDetailsCtrl.item.description}}</p>
-	<button ng-click="itemDetailsCtrl.addToCart()">add to cart</button> 
+	<div>
+		<img src="./img/items/{{itemDetailsCtrl.item.images[itemDetailsCtrl.item.imageIndex]}}" width="200" height="300">
+	</div>
+	<div class="testDiv">
+		<p class="title">Nazwa: </p><p>{{itemDetailsCtrl.item.title}}</p>
+		<p class="title">Cene: </p><p>{{itemDetailsCtrl.item.price}} zł</p>
+		<p class="title">Opis: </p><p>{{itemDetailsCtrl.item.description}}</p>
+		<p class="title">Ilość:</p><select class="select">
+			<option ng-repeat="item in itemDetailsCtrl.item.stock track by $index" ng-if="item.quantity != 0" class="select_quantity">{{item.size}} zł</option>
+		</select>
+		<button ng-click="itemDetailsCtrl.addToCart()">add to cart</button>
+	</div>
 </div>

@@ -4,6 +4,6 @@ angular
 
 function MenuController($scope, categories) {//, items) {//, items) {
     console.log("Menu Controler");
-	var vm = this;
+    var vm = this;
     vm.categories = categories;
 }
