@@ -6,8 +6,8 @@
 		<p class="title">Nazwa: </p><p>{{itemDetailsCtrl.item.title}}</p>
 		<p class="title">Cene: </p><p>{{itemDetailsCtrl.item.price}} zł</p>
 		<p class="title">Opis: </p><p>{{itemDetailsCtrl.item.description}}</p>
-		<p class="title">Ilość:</p><select class="select">
-			<option ng-repeat="item in itemDetailsCtrl.item.stock track by $index" ng-if="item.quantity != 0" class="select_quantity">{{item.size}} zł</option>
+		<p class="title">Rozmiar:</p><select class="select">
+			<option ng-repeat="item in itemDetailsCtrl.item.stock track by $index" ng-if="item.quantity != 0" class="select_quantity">{{item.size}}</option>
 		</select>
 		<button ng-click="itemDetailsCtrl.addToCart()">add to cart</button>
 	</div>
