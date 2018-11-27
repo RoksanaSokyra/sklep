@@ -75,6 +75,21 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+		.state('shop.search', {
+            url: 'item_search/:parameter',
+            resolve: {
+                items: function (ItemService, $stateParams) {
+                    return ItemService.getSearchItems($stateParams.parameter);
+                }
+            },
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/itemsSearch.html',
+                    controller: 'ItemsSearchController',
+                    controllerAs: 'itemSearchCtrl'
+                }
+            }
+        })
         .state('shop.checkout', {
             url: 'checkout',
             resolve: {

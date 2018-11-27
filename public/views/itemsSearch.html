@@ -1,6 +1,6 @@
-<div id="item_by_category">
+<div id="item_search">
     <div id="products">
-        <div class="item_table" ng-repeat="item in itemByCategoryCtrl.items track by $index">
+        <div class="item_table" ng-repeat="item in itemSearchCtrl.items track by $index">
             <a ui-sref="shop.item({id: item._id})">
                 <img src="./img/items/{{item.images[item.imageIndex]}}" width="200" height="300">
             </a></br>

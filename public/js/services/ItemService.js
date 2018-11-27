@@ -6,6 +6,7 @@ function ItemService($http) {
     service.getItem = getItem;
     service.putItem = putItem;
     service.getItemByCategory = getItemByCategory;
+	service.getSearchItems = getSearchItems;
 
     return service;
 
@@ -31,5 +32,10 @@ function ItemService($http) {
             return response.data;
         })
     }
-
+	function getSearchItems(parameter){
+		return $http.get('/item_search/' + parameter).then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
+	}
 }

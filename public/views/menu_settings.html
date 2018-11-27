@@ -33,9 +33,11 @@
 	</div>
 
 	<div id="search">
-		<form>
-			<input type="text" name="Szukaj produktów">
-			<input class="search" type="image" src="img/search.svg" alt="Submit">			
+		<form name="form">
+			<input type="text" name="Search">
+			<input class="search" type="image" 
+				src="img/search.svg" alt="Submit" 
+				ui-sref='shop.search({parameter: form.Search})'>			
 		</form>
 	</div>	
 </div>
