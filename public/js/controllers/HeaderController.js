@@ -16,5 +16,15 @@ function HeaderController($scope, categories, CartService, LoginService, UserSer
             vm.user = response.data;
         });
     }
+    $scope.$watch('headerCtrl.status.value', function () {
 
+        if (vm.status.value == true) {
+            getUser();
+        }
+        else vm.user = {};
+    });
+	$scope.search = {
+        text: '',
+        word: /^[\w -]+/
+      };
 }

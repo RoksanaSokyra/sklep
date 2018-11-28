@@ -1,13 +1,13 @@
-<div id="item_by_category">
-    <div id="products">
-        <div class="item_table" ng-repeat="item in itemByCategoryCtrl.items track by $index">
-            <a ui-sref="shop.item({id: item._id})">
-                <img src="./img/items/{{item.images[item.imageIndex]}}" width="200" height="300">
-            </a></br>
-            <a ui-sref="shop.item({id: item._id})"> {{item.title}} </a></br>
-            {{item.price}} zl</br>
-            <div>
+        <div class="products">
+            <div class="product" ng-repeat="item in itemByCategoryCtrl.items track by $index">
+                <a ui-sref="shop.item({id: item._id})">
+                    <img ng-src="./img/items/{{item.images[item.imageIndex]}}"
+                         ng-mouseover="item.imageIndex='1'"
+                         ng-mouseleave="item.imageIndex='0'">
+                    <span>{{item.title}}</span>
+                    <span>{{item.price}} PLN</span>
+                </a>
+                <div>
+                </div>
             </div>
         </div>
-	</div>
-</div>

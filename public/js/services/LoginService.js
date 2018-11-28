@@ -1,6 +1,6 @@
 angular.module('myApp').factory('LoginService', LoginService);
 
-function LoginService(TokenService, $http) {
+function LoginService(TokenService, UserService, $http) {
     var service = {};
 	service.login = login;
     service.isLogged = isLogged;
@@ -12,12 +12,11 @@ function LoginService(TokenService, $http) {
     function getStatus() {
         return status;
     }
-
     function updateStatus() {
         if (TokenService.getToken()) {status.value = true;}
         else {status.value = false;}
     }
-	
+    
 	
     function initStatus() {
     	if  (TokenService.getToken()){

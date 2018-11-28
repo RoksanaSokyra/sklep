@@ -35,7 +35,7 @@ function CartController(CartService, UserService, TokenService, LoginService, $s
         else {
             $state.go("shop.login");
         }
-        /*$state.go("shop.checkout");*/
+        
     }
 
 }

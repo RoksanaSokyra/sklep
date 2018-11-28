@@ -1,39 +1,38 @@
-<div id="summary">
-	<h1>PODSUMOWANIE</h1>
-	<h4>Dane do wysylki</h4>
-	<p>{{checkoutCtrl.address.name}}</p>
-	<p>{{checkoutCtrl.address.postalCode}} {{checkoutCtrl.address.city}}</p>
-	<p>{{checkoutCtrl.address.street}} {{checkoutCtrl.address.number}}</p>
-	<p>{{checkoutCtrl.address.country}}</p>
-	<h2>Dostawa</h2>
-	<p>{{checkoutCtrl.delivery.title}}</p>
-	<h4>Forma platnosci</h4>
-	<p>{{checkoutCtrl.paymentMethod}}</p>
-	<h4>Wybrane produkty</h4>
-	<table>
-		<thead>
-			<tr>
-				<td>opis</td>
-				<!--<th>kolor</th>-->
-				<!--<th>rozmiar-->
-				<td>ilosc</td>
-				<td>kwota</td>
-			</tr>
-		</thead>
-		<tbody ng-repeat="item in checkoutCtrl.cart.items track by $index">
-			<tr>
-				<td>{{item.title}}</td>
-				<td>{{item.quantity}}</td>
-				<td>
-					<span>
-						<span>{{item.sum}} zł</span>
-					</span>
-				</td>
-			</tr>
-		</tbody>
-		<tfoot>
 
-		</tfoot>
-	</table>
-	<button ng-click="checkoutCtrl.finalizeCheckout()">ZAMAWIAM</button>
-</div>
+<h1>PODSUMOWANIE</h1>
+<h4>Dane do wysylki</h4>
+<p>{{checkoutCtrl.address.name}}</p>
+<p>{{checkoutCtrl.address.postalCode}} {{checkoutCtrl.address.city}}</p>
+<p>{{checkoutCtrl.address.street}} {{checkoutCtrl.address.number}}</p>
+<p>{{checkoutCtrl.address.country}}</p>
+<h2>Dostawa</h2>
+<p>{{checkoutCtrl.delivery.title}}</p>
+<h4>Forma platnosci</h4>
+<p>{{checkoutCtrl.paymentMethod}}</p>
+<h4>Wybrane produkty</h4>
+<table>
+    <thead>
+        <tr>
+            <td>opis</td>
+            <!--<th>kolor</th>-->
+            <!--<th>rozmiar-->
+            <td>ilosc</td>
+            <td>kwota</td>
+        </tr>
+    </thead>
+    <tbody ng-repeat="item in checkoutCtrl.cart.items track by $index">
+        <tr>
+            <td>{{item.title}}</td>
+            <td>{{item.quantity}}</td>
+            <td>
+                <span>
+                    <span>{{item.sum}}</span>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+</table>
+<button ng-click="checkoutCtrl.finalizeCheckout()">ZAMAWIAM</button>

@@ -18,9 +18,11 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 '': {
                     templateUrl: 'views/shop_structure.html',
                 },
-                'header@shop': {
-                    templateUrl: 'views/header.html',
-                },
+                //'header@shop': {
+                  //  templateUrl: 'views/header.html',
+                    //controller: 'HeaderController',
+                   // controllerAs:'headerCtrl'
+                //},
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
                 },
@@ -89,7 +91,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     controllerAs: 'itemSearchCtrl'
                 }
             }
-        })
+		})
         .state('shop.checkout', {
             url: 'checkout',
             resolve: {
@@ -193,9 +195,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     templateUrl: 'views/userPanel.html',
                     controller: 'UserController',
                     controllerAs: 'userCtrl'
-                },
-				'address@shop': {
-					templateUrl: 'views/userAddress.html'
                 }
             }
         })

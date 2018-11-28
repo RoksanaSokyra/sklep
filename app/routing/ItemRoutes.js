@@ -35,6 +35,7 @@ module.exports = function (app) {
             res.json(items);
         });
     });
+	
 	app.get('/item_search/:parameter', function (req, res) {
 		/*Item.find({title: req.params.parameter}, function (err, items) {
             if (err) { console.log("blad"); }
@@ -42,9 +43,10 @@ module.exports = function (app) {
         });*/
 		let search = req.params.parameter;
 		console.log(req.params.parameter);
+		console.log(new RegExp(search, "i"));
 		Item.find({ $or: [
-			{title: search},
-			{category: search}
+			{title: new RegExp(search, "i")},
+			{category: new RegExp(search, "i")}
 		]}, function (err, items){
 			if (err) { console.log("blad"); }
             res.json(items);
