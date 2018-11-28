@@ -1,9 +1,28 @@
-<div id="item_details">
-    <p>{{itemDetailsCtrl.item.title}}</p>
-    <p>{{itemDetailsCtrl.item.price}}</p>
-    <p>{{itemDetailsCtrl.item.description}}</p>
-    <select>
-        <option ng-repeat="item in itemDetailsCtrl.item.stock track by $index" ng-if="item.quantity != 0">{{item.size}}</option>
-    </select>
-    <button ng-click="itemDetailsCtrl.addToCart()">add to cart</button>
+<div class="product-info">
+    <div class="product-image-review">
+        <img class="product-images-mini" ng-repeat="image in itemDetailsCtrl.item.images track by $index" ng-src="./img/items/{{image}}" />
+    </div>
+        <img  class="product-main-image" ng-src="./img/items/{{itemDetailsCtrl.item.images[itemDetailsCtrl.item.imageIndex]}}" />
+        <div class="product-description">
+            <h1>{{itemDetailsCtrl.item.title}}</h1>
+            <h3>cena: {{itemDetailsCtrl.item.price}} PLN</h3>
+            <div class="product-description-sizes">
+                <h3>
+                    rozmiar:
+                </h3>
+                <ul>
+                    <li ng-repeat="item in itemDetailsCtrl.item.stock track by $index" >
+                        <input type="radio" id="{{$index}}" 
+                               ng-disabled="item.quantity == 0" />
+                        <label  for="{{$index}}"
+                               ng-class="{'diabled-class': item.quantity == 0}">{{item.size}} </label>
+                    </li>
+                </ul>
+            </div>
+            <p></p>
+            <button ng-click="itemDetailsCtrl.addToCart()">add to cart</button>
+
+            <h4>{{itemDetailsCtrl.item.description}}</h4>
+        </div>
+    
 </div>

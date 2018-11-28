@@ -1,13 +1,20 @@
-<div id="login">
-    <h1>Login</h1>
-    <form>
-        <input type="text"
-               placeholder="Email"
-               ng-model="loginCtrl.user.email">
-        <input type="password"
-               placeholder="Password"
-               ng-model="loginCtrl.user.password">
-        <button type="submit" ng-click="loginCtrl.login()"> Login </button>
-    </form>
-    <a ui-sref="register">Register</a>
+<div class="login">
+    <div class="login-form">
+        <h1>Mam juz konto</h1>
+        <form>
+            <input type="text"
+                   placeholder="Email"
+                   ng-model="loginCtrl.user.email">
+            <input type="password"
+                   placeholder="Password"
+                   ng-model="loginCtrl.user.password">
+            <button type="submit" ng-click="loginCtrl.login()"> LOGOWANIE </button>
+        </form>
+    </div>
+    <div class="login-register">
+        <h1>Chce zalozyc konto</h1>
+        <p>Jesli jeszcze nie posiadasz konta uzytkownika Royal Tanenbaum uzyj tej opcji, aby przejsc do formularza rejestracji.</p>
+        <p>Poprosimy Cie o podanie niezbednych informacji potrzebnych do sprawnej realizacji zakupow. </p>
+        <button ui-sref="shop.register">Zarejestruj sie</button>
+    </div>
 </div> 

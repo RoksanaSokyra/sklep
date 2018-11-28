@@ -25,6 +25,7 @@ function UserController($scope,  LoginService, UserService, CartService, $state)
     function logout() {
         LoginService.logout();
         CartService.emptyCart();
+        
         $state.go("shop");
     }
 }

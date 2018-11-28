@@ -21,21 +21,21 @@ function CartController(CartService, UserService, TokenService, LoginService, $s
     }
 
     function checkIfAddressAdded() {
-       /* if (LoginService.isLogged()) {
+        if (LoginService.isLogged()) {
             UserService.getCurrentUser().then(function (response) {
                 if (response.data.address.street != "") {
-                    $state.go('shop.deliveryAndPayment');
+                    $state.go('shop.checkout.deliveryAndPayment');
                 }
                 else {
-                    $state.go('shop.address');
+                    $state.go('shop.checkout.address');
                 }
             });
 
         }
         else {
-            $state.go("login");
-        }*/
-        $state.go("shop.checkout");
+            $state.go("shop.login");
+        }
+        
     }
 
 }

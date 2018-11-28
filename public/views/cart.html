@@ -1,49 +1,52 @@
-<div id="cart">
+<div class="cart">
     <h1>KOSZYK</h1>
     <form>
-        <table>
+        <table class="cart-table">
             <thead>
-                <tr>
+                <tr class="cart-table-tr-head">
                     <td>produkt</td>
                     <td>opis</td>
-                    <!--<th>kolor</th>-->
-                    <!--<th>rozmiar-->
+                    <td>rozmiar</td>
                     <td>ilosc</td>
                     <td>kwota</td>
                     <td>usun</td>
                 </tr>
             </thead>
             <tbody ng-repeat="item in cartCtrl.cart.items track by $index">
-                <tr>
-                    <td><img src="./img/items/{{item.images[item.imageIndex]}}" width="50" height="80"></td>
+                <tr class="cart-table-tr-body">
+                    <td><img src="./img/items/{{item.images[item.imageIndex]}}"></td>
                     <td>{{item.title}}</td>
-                    <td>{{item.quantity}}</td>
+                    <td>36</td>
                     <td>
                         <span>
                             <button ng-click="cartCtrl.subQuantity(item)"><</button>
-                            <span>{{item.sum}}</span>
+                            <span>{{item.quantity}}</span>
                             <button ng-click="cartCtrl.addQuantity(item)">></button>
                         </span>
+                    </td>
+                    <td>
+                        {{item.sum}}
                     </td>
                     <td><button ng-click="cartCtrl.removeFromCart(item)">X</button></td>
                 </tr>
             </tbody>
-            <!--<tfoot>
-                <tr>
-                    <th>Kwota zamowienia: </th>
-                    <td>{{cartCtrl.sum}} PLN</td>
-                 <th><button></button></th> {{cartCtrl.removeItem(item)}}
-                </tr>
-                <tr>
-                    <th>Koszt wysylki: </th>
-                    <td>0 PLN</td>
-                </tr>
-                <tr>
-                    <th>Razem: </th>
-                    <td>0 PLN</td>
-                </tr>
-            </tfoot>-->
+            <!--
+    <tfoot class="cart-table-tr-footer">
+        <tr >
+            <th>Kwota zamowienia:</th>
+            <td>{{cartCtrl.cart.sum}}.00 PLN</td>
+        </tr>
+        <tr>
+            <th>Koszt wysylki:</th>
+            <td>0.00 PLN</td>
+        </tr>
+        <tr>
+            <th>Razem:  </th>
+            <td>{{cartCtrl.cart.sum}}.00 PLN</td>
+        </tr>
+    </tfoot>
+                -->
         </table>
-        <button ng-click="cartCtrl.checkIfAddressAdded()">CHECKOUT</button>
+        <button class="cart-button" ng-click="cartCtrl.checkIfAddressAdded()">CHECKOUT</button>
     </form>
 </div>

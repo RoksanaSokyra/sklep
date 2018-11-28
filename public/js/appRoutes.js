@@ -20,6 +20,8 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 },
                 'header@shop': {
                     templateUrl: 'views/header.html',
+                    controller: 'HeaderController',
+                    controllerAs:'headerCtrl'
                 },
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
@@ -32,7 +34,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 },
                 'slideshow@shop': {
                     templateUrl: 'views/slideshow.html',
-                },
+                }/*,
                 'menu_settings@shop': {
                     templateUrl: 'views/menu_settings.html',
                     controller: 'HeaderController',
@@ -42,7 +44,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     templateUrl: 'views/main_menu.html',
                     controller: 'MenuController',
                     controllerAs: 'menuCtrl',
-                }
+                }*/
             }
         })
         .state('shop.item', {
