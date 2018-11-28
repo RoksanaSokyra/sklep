@@ -1,38 +1,43 @@
-<!--<div id="menu_settings">
-
-    <div id="links">
+<div class="header">
+    <div class="header-logo">
         <a ui-sref="shop">
-            <img src="./img/logog.png" width="100" height="40">
-        </a>
-        <a ng-if="!headerCtrl.status.value"  ui-sref="shop.login">
-            <span>
-                Zaloguj sie
-            </span>
-        </a>
-        <a ng-if="headerCtrl.status.value" ui-sref="shop.userPannel.address">
-            Witaj {{headerCtrl.user.address.name}}
+            <img src="./img/logog.png">
         </a>
     </div>
-
-    <div id="basket">
-        <img src="./img/basket.png">
-        <p>
-            <a ui-sref="shop.cart">
-                <span ng-if="!headerCtrl.cart.items.length">
-                    0
-                </span>
-                <span ng-if="headerCtrl.cart.items.length">
-                    {{ headerCtrl.cart.count }}
-                </span>
-            </a>
-        </p>
-    </div>
-
-    <div id="search">
+    <div class="header-center">
         <form>
-            <input type="text" name="Szukaj produktów">
-            <input class="search" type="image" src="img/search.svg" alt="Submit">
+            <input type="text" placeholder="Wpisz haslo wyszukiwania..">
+            <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
+    <div class="header-right">
+        <div class="basket">
+            <a ui-sref="shop.cart">
+                <img src="./img/basket.png">
+                <span class="basket-count" ng-if="!headerCtrl.cart.items.length">
+                    0
+                </span>
+                <span class="basket-count" ng-if="headerCtrl.cart.items.length">
+                    {{ headerCtrl.cart.count }}
+                </span>
+                <span>
+                    Koszyk
+                </span>
+            </a>
+        </div>
+        <div class="user">
+            <a ng-if="!headerCtrl.status.value" ui-sref="shop.login">
+                <img src="./img/user.png">
+                <span class="user-welcome-text">
+                    Zaloguj sie
+                </span>
+            </a>
+            <a ng-if="headerCtrl.status.value" ui-sref="shop.userPannel">
+                <img src="./img/user.png">
+                <span class="user-welcome-text">
+                    Witaj {{headerCtrl.user.address.name}}
+                </span>
+            </a>
+        </div>
+    </div>
 </div>
-    -->
