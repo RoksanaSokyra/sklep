@@ -198,13 +198,21 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('shop.userPannel.address', {
+		.state('shop.userPannel.address', {
+			url: '/UserAddress',
+			templateUrl: 'views/userAddress.html'
+		})
+		.state('shop.userPannel.data', {
+			url: '/UserData',
+			templateUrl: 'views/userData.html'
+		})
+        /*.state('shop.userPannel.address', {
            // views: {
                // 'content@shop.userPannel': {
                     url: '/address',
                     templateUrl: 'views/userAddress.html'
              //   }
            // }
-        })
+        })*/
         
 }

@@ -19,15 +19,10 @@ function UserController($scope,  LoginService, UserService, CartService, $state)
     }
 
     function updateAddress() {
-		$state.go("shop");
-		console.log("1");
-		UserService.updateUserAddress(vm.user).then(function (res) {
-			vm.user = getUser();
-		});
+
     }
 
     function logout() {
-		console.log("test");
         LoginService.logout();
         CartService.emptyCart();
         

@@ -1,24 +1,31 @@
 <form>
+	<p> Imię </p></br>
     <input type="text"
            placeholder="Name *"
-           ng-model="userCtrl.user.address.name">
+           ng-model="userCtrl.user.address.name"></br>
+		   <p> Nazwisko </p></br>
     <input type="text"
            placeholder="Surname *"
-           ng-model="userCtrl.user.address.surname">
+           ng-model="userCtrl.user.address.surname"></br>
+	<p> Ulica </p></br>
     <input type="text"
            placeholder="Street *"
-           ng-model="userCtrl.user.address.street">
+           ng-model="userCtrl.user.address.street"></br>
+	<p> Numer domu </p></br>
     <input type="number"
            placeholder="Number *"
-           ng-model="userCtrl.user.address.number">
+           ng-model="userCtrl.user.address.number"></br>
+	<p> kod pocztowy </p></br>
     <input type="text"
            placeholder="postCode *"
-           ng-model="userCtrl.user.address.postCode">
+           ng-model="userCtrl.user.address.postCode"></br>
+	<p> Miasto </p></br>
     <input type="text"
            placeholder="City *"
-           ng-model="userCtrl.user.address.city">
+           ng-model="userCtrl.user.address.city"></br>
+	<p> kraj </p></br>
     <input type="text"
            placeholder="Country *"
-           ng-model="userCtrl.user.address.country">
-    <button type="submit" ng-click="userCtrl.updateAddress()">ZAPISZ</button>
+           ng-model="userCtrl.user.address.country"></br>
+    <button ng-click="userCtrl.updateAddress()">ZAPISZ</button>
 </form>

@@ -1,4 +1,11 @@
 <button ng-click="userCtrl.logout()">wyloguj sie</button>
 <p>MOJE KONTO</p>
-<div ui-view="menu"></div>
-<div ui-view="content"></div>
+
+<div >
+    <a ui-sref-active="active" ui-sref="shop.userPannel.address"><span>1</span></a>
+	<a ui-sref-active="active" ui-sref="shop.userPannel.data"><span>2</span></a>
+</div>
+
+<div ui-view></div>
+<!--<div ui-view="menu"></div>
+<div ui-view="content"></div-->
