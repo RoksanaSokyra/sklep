@@ -91,7 +91,7 @@ function CartService($http, $window) {
     }
 
     function addQuantity(item) {
-        if (increaseItemQuantity(item)) {
+        if (increaseItemQuantity(item, item.size)) {
             updateCartValues(item, 'add');
         }  }
 
