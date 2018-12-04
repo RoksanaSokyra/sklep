@@ -1,13 +1,16 @@
 <div class="delAndPay">
     <div class="delAndPayWithoutButton">
+
         <div class="delivery">
+            <h2>Metoda dostawy</h2>
             <div ng-repeat="delivery in checkoutCtrl.deliveryOptions track by $index">
                 <label><input type="radio" ng-model="checkoutCtrl.delivery" ng-value="delivery">{{delivery.title}}</label>
             </div>
         </div>
         <div class="payment">
+            <h2>Metoda platnosci</h2>
             <label><input type="radio" ng-model="checkoutCtrl.paymentMethod" [checked]="true" value="platnosc przy odbiorze" /> platnosc przy odbiorze </label>
         </div>
     </div>
-    <button ui-sref="shop.checkout.summary">summary</button>
+    <button  ui-sref="shop.checkout.summary">DALEJ</button>
 </div>

@@ -6,8 +6,9 @@
     </div>
     <div class="header-center">
         <form>
-            <input type="text" placeholder="Wpisz haslo wyszukiwania..">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <input type="text" name="input" ng-model="search.text"
+                   ng-pattern="search.word" required ng-trim="false" placeholder="Wpisz haslo wyszukiwania..">
+            <button type="submit" ui-sref='shop.search({parameter: search.text})'><i class="fa fa-search"></i></button>
         </form>
     </div>
     <div class="header-right">

@@ -8,9 +8,7 @@ function UserController($scope,  LoginService, UserService, CartService, $state)
         vm.user = getUser();
     }
     else { $state.go("login"); }
-
-    vm.updateAddress = updateAddress;
-    vm.logout = logout;
+    
 
     function getUser() {
         UserService.getCurrentUser().then(function (response) {
@@ -18,14 +16,4 @@ function UserController($scope,  LoginService, UserService, CartService, $state)
         });
     }
 
-    function updateAddress() {
-
-    }
-
-    function logout() {
-        LoginService.logout();
-        CartService.emptyCart();
-        
-        $state.go("shop");
-    }
 }

@@ -12,6 +12,7 @@ module.exports = function (app) {
         item.price = req.body.price;
         item.imageIndex = req.body.index;
         item.quantity = req.body.quantity;
+        item.date = new Date;
         item.save();
         return res.json({
             message: "OK!"
@@ -31,6 +32,20 @@ module.exports = function (app) {
     });
     app.get('/category-items/:category', function (req, res) {
         Item.find({category: req.params.category}, function (err, items) {
+            if (err) { console.log("blad"); }
+            res.json(items);
+        });
+    });
+    app.get('/item_search/:parameter', function (req, res) {
+
+        let search = req.params.parameter;
+        console.log(req.params.parameter);
+        Item.find({
+            $or: [
+                { title: new RegExp(search, "i") },
+                { category: new RegExp(search, "i") }
+            ]
+        }, function (err, items) {
             if (err) { console.log("blad"); }
             res.json(items);
         });

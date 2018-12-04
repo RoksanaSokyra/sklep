@@ -1,6 +1,9 @@
         <div class="products">
             <div class="product" ng-repeat="item in itemByCategoryCtrl.items track by $index">
                 <a ui-sref="shop.item({id: item._id})">
+                    <span class="new_product" ng-if="itemByCategoryCtrl.isNewItem(item.date)">
+                        NOWOSC
+                    </span>
                     <img ng-src="./img/items/{{item.images[item.imageIndex]}}"
                          ng-mouseover="item.imageIndex='1'"
                          ng-mouseleave="item.imageIndex='0'">

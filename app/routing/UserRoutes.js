@@ -9,4 +9,12 @@ module.exports = function (app) {
             res.json(user);
         });
     });
+
+    app.put('/users/update/', function (req, res) {
+        User.update({ _id: req.body._id }, req.body, { upsert: true }, function (err, user) {
+            if (err) { return next(err); }
+            res.json(user);
+        });
+    });
+
 };

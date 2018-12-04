@@ -14,8 +14,10 @@ function UserService(TokenService, $http, $window) {
             return response;
         });
     }
-    function updateUserAddress() {
-        //dodaj adres do uzytkownika
+    function updateUserAddress(user) {
+        return $http.put('/users/update/', user).then(function (res) {
+            return res;
+        });
     }
 
 }

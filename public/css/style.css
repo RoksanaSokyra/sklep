@@ -197,9 +197,9 @@
 .products {
     margin-top: 20px;
     position: relative;
-    margin-left: 300px; /*ew usunac jakby nie bylo filtrow*/
-    width: 1028px;
-    display:table;
+    margin-left: 20px; /*ew zmienic jakby byly filtry*/
+    width: 1285px;
+    display: table;
 }
 
 .product:hover {
@@ -244,6 +244,7 @@
 .footer:before {
     content: '';
     display: block;
+    clear:both;
 }
 
 .footer:after {
@@ -389,6 +390,10 @@
             color: #313131;
             border: 2px solid #313131;
         }
+    .product-description-sizes input[type="radio"]:checked + label {
+        color: #313131;
+        border: 2px solid #313131;
+    } 
 
     .product-description-sizes input {
         visibility:hidden;
@@ -526,13 +531,21 @@ label.diabled-class:hover {
         .register button:hover {
             background-color: #63C7BA;
         }
+.error {
+   color:red;
+}
 
+input.inputError {
+    border: 1px red;
+    box-shadow: 0 0 2px red;
+}
 /*ADRES ZAMOWIENIA*/
 .address {
     font-family: Quicksand-Regular;
     font-size: 14px;
-    margin-left: 490px;
     display:table;
+    width:100%;
+    margin-left:200px;
 }
 .col-1 {
     display: table-cell;
@@ -573,11 +586,16 @@ label.diabled-class:hover {
 /*METODA WYSYLKI I PLATNOSC*/
 .delAndPay {
     font-family: Quicksand-Regular;
-    font-size: 14px;
-    margin-left: 490px;
+    font-size: 20px;
+    margin-left:300px;
+}
+.delAndPay h2 {
+    border-bottom: 1px solid #a7a7a7;
 }
 .delAndPayWithoutButton {
     display: table;
+    width:100%;
+    margin-bottom:20px;
 }
     .delAndPay button {
         font-family: Quicksand-Regular;
@@ -596,7 +614,6 @@ label.diabled-class:hover {
         }
 .payment {
     display: table-cell;
-    padding-right: 20px;
     float: left;
 }
 
@@ -615,6 +632,153 @@ label.diabled-class:hover {
     width: 400px;
     background: #f1f1f1;
 }
+
+/* PODSUMOWANIE */
+.summary {
+    font-family: Quicksand-Regular;
+    font-size: 14px;
+}
+
+.summary button {
+    font-family: Quicksand-Regular;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 17px;
+    border: 0;
+    width: 200px;
+    background: #caeae6;
+    cursor: pointer;
+}
+
+    .summary button:hover {
+        background-color: #00BC8C;
+    }
+
+
+
+/*GUZIKI CHECKOUTU*/
+/* numbered buttons */
+#status-buttons {
+    width:30%;
+    margin: 0 auto;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+    #status-buttons a {
+        font-family:Quicksand-Regular;
+        color: #313131;
+        display: inline-block;
+        font-size: 12px;
+        margin-right: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: none;
+    }
+
+
+    /* we will style the span as the circled number */
+    #status-buttons span {
+        background: rgba(0, 188, 140, 0.55);
+        display: block;
+        height: 30px;
+        margin: 0 auto 10px;
+        padding-top: 5px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    /* active buttons turn light green-blue*/
+    #status-buttons a.active span {
+        background: #00BC8C;
+    }
+
+/*NOWOSCI*/
+.new_product {
+    background-color: #63C7BA;
+    position: absolute;
+    padding-left: 1px;
+    padding-right: 1px;
+    font-family:Quicksand-Regular;
+    font-size:11px;
+}
+
+/*UZYTKOWNIK*/
+.UserProfile {
+    width:100%;
+    font-family: Quicksand-Regular;
+    font-size: 14px;
+    width:100%;
+    display:table;
+    background-color:#63C7BA;
+}
+.userProfileMenu {
+    font-family: Quicksand-Regular;
+    display: table-cell;
+    float: left;
+    height: auto;
+    background-color: #F5F5F5;
+    border-right: 1px solid #808080;
+}
+
+.userProfileMenu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type:none;
+}
+    .userProfileMenu a {
+        font-size: 26px;
+        text-decoration: none;
+        color: black;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .userProfileMenu li, h1 {
+        padding-right: 250px;
+        padding-left: 30px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+        .userProfileMenu li:hover {
+            background: #E6F6F4;
+            border: 1px solid #808080;
+        }
+
+.userProfileContent {
+    display:table-cell;
+    float:left;
+    font-family:Quicksand-Regular;
+    font-size:19px;
+    padding-left: 20px;
+}
+    .userProfileContent input {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        margin-left:10px;
+        margin-right:20px;
+        margin-bottom:10px;
+        float: left;
+        background: #f1f1f1;
+    }
+    .userProfileContent button {
+        width: 400px;
+        height: 50px;
+        margin-top: 10px;
+        background-color: #caeae6;
+        font-family: Quicksand-Regular;
+        font-size: 20px;
+        color: black;
+        border: 0;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .userProfileContent button:hover {
+            background-color: #63C7BA;
+        }
 /* SLIDESHOW */
 .mySlides {
     display: none;

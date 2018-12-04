@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('LoginController', LoginController);
 
-function LoginController(LoginService, $state) {
+function LoginController(LoginService, $state, toastr) {
     var vm = this;
     vm.user = {
         email: "",
@@ -11,7 +11,10 @@ function LoginController(LoginService, $state) {
     vm.login = login;
 
     function login() {
-        LoginService.login(vm.user);
-        $state.go('shop');
+        var x = LoginService.login(vm.user).then(function (res) {
+            $state.go('shop');
+        }).catch(function (err) {
+            toastr.error('nieprawidlowe dane', 'logowanie', { closeButton: true, timeOut: 3000 });
+        });
     }
 }

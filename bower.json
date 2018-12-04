@@ -8,6 +8,9 @@
     "angular": "latest",
     "angular-route": "latest",
     "angular-ui-router": "latest",
-    "angular-cookies": "latest"
+    "angular-cookies": "latest",
+    "moment": "^2.22.2",
+    "angular-moment": "latest",
+	"angular-toastr": "latest"
   }
 }

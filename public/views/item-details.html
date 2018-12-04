@@ -1,6 +1,6 @@
 <div class="product-info">
     <div class="product-image-review">
-        <img class="product-images-mini" ng-repeat="image in itemDetailsCtrl.item.images track by $index" ng-src="./img/items/{{image}}" />
+        <img class="product-images-mini"  ng-repeat="image in itemDetailsCtrl.item.images track by $index" ng-click="itemDetailsCtrl.changeImage($index)" ng-src="./img/items/{{image}}" />
     </div>
         <img  class="product-main-image" ng-src="./img/items/{{itemDetailsCtrl.item.images[itemDetailsCtrl.item.imageIndex]}}" />
         <div class="product-description">
@@ -13,6 +13,8 @@
                 <ul>
                     <li ng-repeat="item in itemDetailsCtrl.item.stock track by $index" >
                         <input type="radio" id="{{$index}}" 
+                               ng-model="itemDetailsCtrl.size"
+                               ng-value="{{item.size}}"
                                ng-disabled="item.quantity == 0" />
                         <label  for="{{$index}}"
                                ng-class="{'diabled-class': item.quantity == 0}">{{item.size}} </label>

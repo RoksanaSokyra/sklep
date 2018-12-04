@@ -1,14 +1,21 @@
 <div class="login">
     <div class="login-form">
         <h1>Mam juz konto</h1>
-        <form>
+        <form name="loginForm" novalidate>
             <input type="text"
                    placeholder="Email"
-                   ng-model="loginCtrl.user.email">
+                   ng-model="loginCtrl.user.email" ng-class="{ 'inputError': loginForm.email.$invalid && loginForm.email.$touched}"
+                   required name="email">
+            <p class="error" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Puste pole</p>
+
             <input type="password"
                    placeholder="Password"
-                   ng-model="loginCtrl.user.password">
-            <button type="submit" ng-click="loginCtrl.login()"> LOGOWANIE </button>
+                   ng-model="loginCtrl.user.password" ng-class="{ 'inputError': loginForm.password.$invalid && loginForm.password.$touched}"
+                   required name="password">
+            <p class="error" ng-show="loginForm.password.$invalid && loginForm.password.$touched">Puste pole</p>
+
+            <button type="submit" ng-click="loginCtrl.login()" ng-disabled="loginForm.$invalid"> LOGOWANIE </button>
+
         </form>
     </div>
     <div class="login-register">

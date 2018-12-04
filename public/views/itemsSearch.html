@@ -1,0 +1,16 @@
+ <div class="products">
+     <div class="product" ng-repeat="item in itemSearchCtrl.items track by $index">
+         <span class="new_product" ng-if="itemSearchCtrl.isNewItem(item.date)">
+             NOWOSC
+         </span>
+         <a ui-sref="shop.item({id: item._id})">
+             <img ng-src="./img/items/{{item.images[item.imageIndex]}}"
+                  ng-mouseover="item.imageIndex='1'"
+                  ng-mouseleave="item.imageIndex='0'">
+             <span>{{item.title}}</span>
+             <span>{{item.price}} PLN</span>
+         </a>
+         <div>
+         </div>
+     </div>
+</div>

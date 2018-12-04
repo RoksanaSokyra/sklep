@@ -77,6 +77,21 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('shop.search', {
+            url: 'item_search/:parameter',
+            resolve: {
+                items: function (ItemService, $stateParams) {
+                    return ItemService.getSearchItems($stateParams.parameter);
+                }
+            },
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/itemsSearch.html',
+                    controller: 'ItemsSearchController',
+                    controllerAs: 'itemSearchCtrl'
+                }
+            }
+        })
         .state('shop.checkout', {
             url: 'checkout',
             resolve: {
@@ -178,18 +193,18 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             views: {
                 'main@shop': {
                     templateUrl: 'views/userPanel.html',
-                    controller: 'UserController',
+                    controller: 'UserPannelController',
                     controllerAs: 'userCtrl'
                 }
             }
         })
         .state('shop.userPannel.address', {
-           // views: {
-               // 'content@shop.userPannel': {
-                    url: '/address',
-                    templateUrl: 'views/userAddress.html'
-             //   }
-           // }
+            url: '/address',
+            templateUrl: 'views/userAddress.html'
+        })
+        .state('shop.userPannel.data', {
+            url: '/data',
+            templateUrl: 'views/userData.html'
         })
         
 }

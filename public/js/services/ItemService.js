@@ -1,11 +1,13 @@
 angular.module('myApp').factory('ItemService', ItemService);
 
-function ItemService($http) {
+function ItemService($http, DateService) {
     var service = {}
     service.getItems = getItems;
     service.getItem = getItem;
     service.putItem = putItem;
     service.getItemByCategory = getItemByCategory;
+    service.isNewItem = isNewItem;
+    service.getSearchItems = getSearchItems;
 
     return service;
 
@@ -27,6 +29,18 @@ function ItemService($http) {
 
     function getItemByCategory(category) {
         return $http.get('category-items/' + category).then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
+    }
+
+    function isNewItem(date) {
+        if (DateService.calculateDiff(date) <= 14) return true;
+        else return false;
+    }
+
+    function getSearchItems(parameter) {
+        return $http.get('/item_search/' + parameter).then(function (response) {
             console.log(response.data);
             return response.data;
         })
