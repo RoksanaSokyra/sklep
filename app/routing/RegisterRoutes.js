@@ -16,6 +16,7 @@ module.exports = function (app) {
         user.address.postCode = "";
         user.address.city = "";
         user.address.country = "";
+        user.accessLevel = 0;
         user.setPassword(req.body.password);
         user.save();
         return res.json({
