@@ -50,4 +50,25 @@ module.exports = function (app) {
             res.json(items);
         });
     });
+    /*app.get('/item-quantity', function (req, res) {
+        console.log(req.query.size);
+        console.log(req.query.quantity);
+        console.log(req.query.id);
+        Item.findById(req.query.id, function (err, item) {
+            console.log(item.stock);
+            item.stock.forEach(function (a) {
+                if (a.size == req.query.size && a.quantity < req.query.quantity) {
+                    return res.json({
+                        error: "1",
+                        message: "brak produktow w magazynie",
+                        availableQuantity: a.quantity
+                    })
+                }
+            }
+            )
+        });
+        return res.json({
+            message: "OK!"
+        })
+    });*/
 };

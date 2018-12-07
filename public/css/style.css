@@ -5,7 +5,13 @@
 @font-face {
     font-family: Quicksand-Regular;
     src: url('Quicksand-Regular.otf');
-} 
+}
+
+.footerInfo {
+    font-size:14px;
+    font-family:Quicksand-Regular;
+    text-align:center;
+}
 
 .header {
     background-color: #E6F6F4;
@@ -201,7 +207,11 @@
     width: 1285px;
     display: table;
 }
+.products h2{
+    text-align: center;
+    font-family:Quicksand-Regular;
 
+}
 .product:hover {
     border: 1px solid #808080;
 }
@@ -239,7 +249,6 @@
 .footer {
     font-family: Quicksand-Regular;
     font-size: 14px;
-    
 }
 .footer:before {
     content: '';
@@ -254,13 +263,14 @@
 }
 
     .footer ul {
-        
         list-style-type: none;
         position: relative;
         display: block;
+        padding-left: 0;
+        margin-left: 0;
     }
     .footer li {
-        width: 20%;
+        width: 25%;
         display: block;
         float: left;
         background-color: #E6F6F4;

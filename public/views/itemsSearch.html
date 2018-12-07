@@ -1,4 +1,5 @@
  <div class="products">
+     <h2 ng-if="itemSearchCtrl.items.length == 0">brak wynikow wyszukiwania</h2>
      <div class="product" ng-repeat="item in itemSearchCtrl.items track by $index">
          <span class="new_product" ng-if="itemSearchCtrl.isNewItem(item.date)">
              NOWOSC

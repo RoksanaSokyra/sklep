@@ -1,6 +1,6 @@
 angular.module('myApp').factory('CartService', CartService);
 
-function CartService($http, $window) {
+function CartService($http, $window, toastr) {
     var service = {}
     service.addToCart = addToCart;
     service.createCart = createCart;
@@ -40,10 +40,10 @@ function CartService($http, $window) {
         return itemIncreased;
     }
 
-    function decreaceItemQuantity(item) {
+    function decreaceItemQuantity(item, size) {
         var itemDecreased = false;
         cart.items.forEach(function (i) {
-            if (i._id == item._id && i.quantity > 1) { //czemu jak >=1 to moze byc 0
+            if (i._id == item._id && i.size == size && i.quantity > 1) { //czemu jak >=1 to moze byc 0
                 itemDecreased= true;
                 i.quantity -= 1;
                 i.sum -= item.price;
@@ -96,12 +96,13 @@ function CartService($http, $window) {
         }  }
 
     function subQuantity(item) {
-        if (decreaceItemQuantity(item)) {
+        if (decreaceItemQuantity(item, item.size)) {
             updateCartValues(item, 'sub');
         }
      }
 
     function addToCart(item, size) { 
+        toastr.success('dodano do koszyka', 'koszyk', { closeButton: true, timeOut: 3000 });
         if ($window.localStorage.getItem('cart')) {
             addItemToExistingCart(item, size);
         }
@@ -114,10 +115,11 @@ function CartService($http, $window) {
 
     function removeFromCart(item) {
         cart.items.forEach(function (i) {
-            if (i._id == item._id) {
+            console.log("item and size compare: " + i.size + " " + item.size);
+            if (i._id == item._id && i.size == item.size) {
                 cart.count -= i.quantity;
                 cart.summary -= i.sum;
-                cart.items.splice(cart.items.indexOf(i, 1));
+                cart.items.splice(cart.items.indexOf(i), 1);
                 $window.localStorage.setItem('cart', JSON.stringify(cart));
             }
         });

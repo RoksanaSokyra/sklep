@@ -1,35 +1,43 @@
 <div class="address">
-    <div class="col-1">
-        <input type="text"
-               placeholder="Name *"
-               ng-model="checkoutCtrl.address.name">
+        <div class="col-1">
+            <input type="text" placeholder="Name *"
+                   ng-model="checkoutCtrl.address.name" ng-class="{ 'inputError': checkoutForm.name.$touched && checkoutForm.name.$invalid}" required name="name">
+            <p class="error" ng-show="checkoutForm.name.$touched && checkoutForm.name.$invalid">puste pole</p>
 
-        <input type="text"
-               placeholder="Street *"
-               ng-model="checkoutCtrl.address.street">
-        <input type="text"
-               placeholder="postCode *"
-               ng-model="checkoutCtrl.address.postCode">
+            <input type="text" placeholder="Street *"
+                   ng-model="checkoutCtrl.address.street" ng-class="{ 'inputError': checkoutForm.street.$touched && checkoutForm.street.$invalid}" required name="street">
+            <p class="error" ng-show="checkoutForm.street.$touched && checkoutForm.street.$invalid">puste pole</p>
 
-        <input type="text"
-               placeholder="Country *"
-               ng-model="checkoutCtrl.address.country">
-        <button ui-sref="shop.checkout.deliveryAndPayment">DALEJ</button>
-    </div>
 
-    <div class="col-2">
+            <input type="text" placeholder="postCode *"
+                   ng-model="checkoutCtrl.address.postCode" ng-class="{ 'inputError': checkoutForm.postCode.$touched && checkoutForm.postCode.$invalid}"pattern="[0-9]{2}\-[0-9]{3}" required name="postCode">
+            <p class="error" ng-show="checkoutForm.postCode.$touched && checkoutForm.postCode.$invalid">niepoprawny format</p>
 
-        <input type="text"
-               placeholder="Surname *"
-               ng-model="checkoutCtrl.address.surname">
-        <input type="number"
-               placeholder="Number *"
-               ng-model="checkoutCtrl.address.number">
 
-        <input type="text"
-               placeholder="City *"
-               ng-model="checkoutCtrl.address.city">
+            <input type="text" placeholder="Country *"
+                   ng-model="checkoutCtrl.address.country" ng-class="{ 'inputError': checkoutForm.country.$touched && checkoutForm.country.$invalid}" required name="country">
+            <p class="error" ng-show="checkoutForm.country.$touched && checkoutForm.country.$invalid">puste pole</p>
 
-    </div>
-    
+            <button ui-sref="shop.checkout.deliveryAndPayment">DALEJ</button>
+        </div>
+
+        <div class="col-2">
+
+            <input type="text"
+                   placeholder="Surname *"
+                   ng-model="checkoutCtrl.address.surname" ng-class="{ 'inputError': checkoutForm.surname.$touched && checkoutForm.surname.$invalid}"  required name="surname">
+            <p class="error" ng-show="checkoutForm.surname.$touched && checkoutForm.surname.$invalid">puste pole</p>
+
+            <input type="number"
+                   placeholder="Number *"
+                   ng-model="checkoutCtrl.address.number" ng-class="{ 'inputError': checkoutForm.number.$touched && checkoutForm.number.$invalid}" required name="number">
+            <p class="error" ng-show="checkoutForm.number.$touched && checkoutForm.number.$invalid">puste pole</p>
+
+
+            <input type="text"
+                   placeholder="City *"
+                   ng-model="checkoutCtrl.address.city" ng-class="{ 'inputError': checkoutForm.city.$touched && checkoutForm.city.$invalid}" required name="city">
+            <p class="error" ng-show="checkoutForm.city.$touched && checkoutForm.city.$invalid">puste pole</p>
+
+        </div>
 </div>
