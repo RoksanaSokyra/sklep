@@ -10,8 +10,7 @@ module.exports = function (app) {
         order.customerAddress = req.body.address;
         order.items = req.body.cart.items;
         order.paymentMethod = req.body.paymentMethod;
-        order.deliveryMethod.title = req.body.deliveryMethod.title;
-        order.deliveryMethod.price = req.body.deliveryMethod.price;
+        order.deliveryMethod = req.body.deliveryMethod._id;
         order.save();
         req.body.cart.items.forEach(function (i) {
             Item.update({ _id: i._id, "stock.size": i.size }, { $inc: {"stock.$.quantity" : -i.quantity} }, { upsert: true }, function (err, item) {

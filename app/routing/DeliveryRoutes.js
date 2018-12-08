@@ -6,7 +6,7 @@ module.exports = function (app) {
     app.post('/deliveries/', function (req, res) {
         var delivery = new Delivery();
         delivery.title = req.body.title;
-        delivery.description = req.body.description;
+        delivery.waitingTime = req.body.waitingTime;
         delivery.price = req.body.price;
         delivery.save();
         return res.json({

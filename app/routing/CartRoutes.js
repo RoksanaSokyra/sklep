@@ -1,6 +1,4 @@
 var mongoose = require('mongoose');
-var Cart = mongoose.model('Cart');
-var CartItem = mongoose.model('CartItem');
 var Item = mongoose.model('Item');
 
 module.exports = function (app) {

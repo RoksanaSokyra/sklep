@@ -4,28 +4,28 @@ var bcrypt = require('bcryptjs');
 
 var userSchema = new mongoose.Schema(
     {
-    email: { type: String, required: true, unique: true },
-    hash: String,
-    accessLevel: { type: Number, default: 0 },
-    address: {
-        name: { type: String, required: true },
-        surname: { type: String, required: true },
-        street: String,
-        number: Number,
-        postCode: String,
-        city: String,
-        country: String
-    },
-    phone: Number
+        email: { type: String, required: true, unique: true },
+        password: String,
+        accessLevel: { type: Number, default: 0 },
+        address: {
+            name: { type: String, required: true },
+            surname: { type: String, required: true },
+            street: String,
+            number: Number,
+            postCode: String,
+            city: String,
+            country: String
+        },
+        phone: Number
     }
 );
 
 userSchema.methods.setPassword = function (password) {
-    this.hash = bcrypt.hashSync(password, 10);
+    this.password = bcrypt.hashSync(password, 10);
 };
 
 userSchema.methods.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.hash);
+    return bcrypt.compareSync(password, this.password);
 };
 
 userSchema.methods.generateJWT = function () {

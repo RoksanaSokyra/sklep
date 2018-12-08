@@ -1,5 +1,5 @@
 {
-  "name": "royal-tanenbaums",
+  "name": "royal-tanenbaum",
   "description": "projekt inzynierski 2018",
   "author": "Roksana Sokyra, Krzysztof Kamola",
   "main": "server.js",
@@ -16,6 +16,7 @@
     "passport": "~0.4.0",
     "passport-jwt": "~4.0.0",
     "passport-local": "~1.0.0",
-    "validator": "^10.9.0"
+    "validator": "~10.9.0"
   }
 }
+
