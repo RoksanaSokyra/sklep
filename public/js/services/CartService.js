@@ -31,10 +31,13 @@ function CartService($http, $window, toastr) {
     function increaseItemQuantity(item, size) {
         var itemIncreased = false;
         cart.items.forEach(function (i) {
-            if (i._id == item._id && i.size == size) {
+            if (i._id == item._id && i.size == size && i.quantity < i.availableQuantity) {
                 itemIncreased = true;
                 i.quantity += 1;
                 i.sum += item.price;
+            }
+            else if (i._id == item._id && i.size == size && i.quantity >= i.availableQuantity) {
+                toastr.error('brak produktu w magazynie', 'koszyk', { closeButton: true, timeOut: 3000 });
             }
         });
         return itemIncreased;
@@ -53,6 +56,12 @@ function CartService($http, $window, toastr) {
     }
 
     function makeNewCartItem(item, size) {
+        var quantityInStock = 0;
+        item.stock.forEach(function (i){
+            if (i.size == size) {
+                quantityInStock = i.quantity;
+            }
+        });
         var cartItem = {
             _id: item._id,
             title: item.title,
@@ -61,7 +70,8 @@ function CartService($http, $window, toastr) {
             size: size,
             price: item.price,
             quantity: 1,
-            sum: item.price
+            sum: item.price,
+            availableQuantity: quantityInStock
         }
         
         return cartItem;
