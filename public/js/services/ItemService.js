@@ -1,12 +1,14 @@
 angular.module('myApp').factory('ItemService', ItemService);
 
-function ItemService($http) {
+function ItemService($http, DateService) {
     var service = {}
     service.getItems = getItems;
     service.getItem = getItem;
     service.putItem = putItem;
     service.getItemByCategory = getItemByCategory;
-	service.getSearchItems = getSearchItems;
+    service.isNewItem = isNewItem;
+    service.getSearchItems = getSearchItems;
+	service.getSortedItem = getSortedItem
 
     return service;
 
@@ -32,10 +34,42 @@ function ItemService($http) {
             return response.data;
         })
     }
-	function getSearchItems(parameter){
-		return $http.get('/item_search/' + parameter).then(function (response) {
+	
+	function getSortedItem(sort) {
+        return $http.get('/items').then(function (response) { //response.data mozna zamienic n data.data?
+			let order='asc';
+            let items = response.data.sort(function(a, b) {
+				if(!a.hasOwnProperty(sort) || !b.hasOwnProperty(sort)) {
+					return 0;
+				}
+
+				let varA = a[sort];
+				let varB = b[sort];
+
+				let comparison = 0;
+							
+				if(typeof a[sort] === 'string'){
+					comparison = varA.localeCompare(varB);
+				} else if (typeof a[sort] === 'number'){
+					comparison = varA - varB;
+				}
+				
+				return ((order == 'desc') ? (comparison * -1) : comparison);
+			});
+			return items;
+        });
+    }
+
+    function isNewItem(date) {
+        if (DateService.calculateDiff(date) <= 14) return true;
+        else return false;
+    }
+
+    function getSearchItems(parameter) {
+        return $http.get('/item_search/' + parameter).then(function (response) {
             console.log(response.data);
             return response.data;
         })
-	}
+    }
+
 }

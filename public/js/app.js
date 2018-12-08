@@ -1,1 +1,1 @@
-angular.module('myApp', ['ui.router' ])// ['ngRoute'])
+angular.module('myApp', ['ui.router', 'angularMoment', 'toastr' ])// ['ngRoute'])

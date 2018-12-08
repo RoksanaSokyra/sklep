@@ -1,9 +1,9 @@
 
-<div >
-    <a ui-sref-active="active" ui-sref="shop.checkout.address"><span>1</span></a>
-    <a ui-sref-active="active" ui-sref="shop.checkout.deliveryAndPayment"><span>2</span></a>
-    <a ui-sref-active="active" ui-sref="shop.checkout.summary"><span>3</span></a>
+<div id="status-buttons">
+    <a ui-sref-active="active" ui-sref="shop.checkout.address"><span></span> ADRES </a>
+    <a ui-sref-active="active" ui-sref="shop.checkout.deliveryAndPayment"><span></span> DOSTAWA  PLATNOSC</a>
+    <a ui-sref-active="active" ui-sref="shop.checkout.summary"><span></span> PODSUMOWANIE</a>
 </div>
-<form>
+<form name="checkoutForm">
     <div ui-view></div>
 </form>

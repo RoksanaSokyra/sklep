@@ -1,18 +1,31 @@
 <div class="register">
     <h1>Rejestracja</h1>
-    <form>
-        <input type="text"
+    <form name="registerForm" novalidate>
+        <input type="email"
                placeholder="Email *"
-               ng-model="registerCtrl.user.email">
+               ng-model="registerCtrl.user.email" ng-class="{ 'inputError': registerForm.email.$invalid && registerForm.email.$touched}"
+               required name="email" ng-pattern="/^\S+@\S+$/">
+        <p class="error" ng-show="registerForm.email.$touched && registerForm.email.$invalid">niepoprawny adres email</p>
         <input type="text"
                placeholder="Name *"
-               ng-model="registerCtrl.user.name">
+               ng-model="registerCtrl.user.name" ng-class="{ 'inputError': registerForm.name.$invalid && registerForm.name.$touched}"
+               required name="name">
+        <p class="error" ng-show="registerForm.name.$touched && registerForm.name.$invalid">Puste pole</p>
+
         <input type="text"
                placeholder="Surname *"
-               ng-model="registerCtrl.user.surname">
+               ng-model="registerCtrl.user.surname" ng-class="{ 'inputError': registerForm.surname.$invalid && registerForm.surname.$touched}"
+               required name="surname">
+        <p class="error" ng-show="registerForm.surname.$touched && registerForm.surname.$invalid">Puste pole</p>
+
         <input type="password"
                placeholder="Password *"
-               ng-model="registerCtrl.user.password">
-        <button type="submit" ng-click="registerCtrl.register()"> Register </button>
+               ng-model="registerCtrl.user.password" ng-class="{ 'inputError': registerForm.password.$invalid && registerForm.password.$touched}"
+               pattern=".{6,}" required name="password">
+        <p class="error" ng-show="registerForm.password.$touched && registerForm.password.$invalid">Haslo musi miec conajmniej 6 znakow</p>
+        <button type="submit" ng-click="registerCtrl.register()"
+                ng-disabled="registerForm.$invalid">
+            Register
+        </button>
     </form>
 </div>

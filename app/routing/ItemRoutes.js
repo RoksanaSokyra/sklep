@@ -12,6 +12,7 @@ module.exports = function (app) {
         item.price = req.body.price;
         item.imageIndex = req.body.index;
         item.quantity = req.body.quantity;
+        item.date = new Date;
         item.save();
         return res.json({
             message: "OK!"
@@ -35,21 +36,39 @@ module.exports = function (app) {
             res.json(items);
         });
     });
-	
-	app.get('/item_search/:parameter', function (req, res) {
-		/*Item.find({title: req.params.parameter}, function (err, items) {
+    app.get('/item_search/:parameter', function (req, res) {
+
+        let search = req.params.parameter;
+        console.log(req.params.parameter);
+        Item.find({
+            $or: [
+                { title: new RegExp(search, "i") },
+                { category: new RegExp(search, "i") }
+            ]
+        }, function (err, items) {
             if (err) { console.log("blad"); }
             res.json(items);
-        });*/
-		let search = req.params.parameter;
-		console.log(req.params.parameter);
-		console.log(new RegExp(search, "i"));
-		Item.find({ $or: [
-			{title: new RegExp(search, "i")},
-			{category: new RegExp(search, "i")}
-		]}, function (err, items){
-			if (err) { console.log("blad"); }
-            res.json(items);
-		});
-	});
+        });
+    });
+    /*app.get('/item-quantity', function (req, res) {
+        console.log(req.query.size);
+        console.log(req.query.quantity);
+        console.log(req.query.id);
+        Item.findById(req.query.id, function (err, item) {
+            console.log(item.stock);
+            item.stock.forEach(function (a) {
+                if (a.size == req.query.size && a.quantity < req.query.quantity) {
+                    return res.json({
+                        error: "1",
+                        message: "brak produktow w magazynie",
+                        availableQuantity: a.quantity
+                    })
+                }
+            }
+            )
+        });
+        return res.json({
+            message: "OK!"
+        })
+    });*/
 };

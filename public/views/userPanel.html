@@ -1,11 +1,29 @@
-<button ng-click="userCtrl.logout()">wyloguj sie</button>
-<p>MOJE KONTO</p>
 
-<div >
-    <a ui-sref-active="active" ui-sref="shop.userPannel.address"><span>1</span></a>
-	<a ui-sref-active="active" ui-sref="shop.userPannel.data"><span>2</span></a>
+<div class="userProfile">
+    
+    <div class="userProfileMenu">
+        <h1>MOJE KONTO</h1>
+        <ul>
+            <!--
+    <li>
+        <a ui-sref-active="active" ui-sref="shop.addItem" ng-if="userCtrl.user.accessLevel == 1"><span>dodaj produkt</span></a>
+    </li>
+    <li>
+        <a ui-sref-active="active" ui-sref="shop.addCategory" ng-if="userCtrl.user.accessLevel == 1"><span>dodaj kategorie</span></a>
+    </li>
+        -->
+            <li>
+                <a ui-sref-active="active" ui-sref="shop.userPannel.data"><span>pokaz dane</span></a>
+            </li>
+
+            <li>
+                <a ui-sref-active="active" ui-sref="shop.userPannel.address"><span>zmien adres</span></a>
+            </li>
+            <li>
+                <a ng-click="userCtrl.logout()">wyloguj sie</a>
+            </li>
+        </ul>
+    </div>
+
+   <div ui-view class="userProfileContent"></div>
 </div>
-
-<div ui-view></div>
-<!--<div ui-view="menu"></div>
-<div ui-view="content"></div-->

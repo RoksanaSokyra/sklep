@@ -1,8 +1,7 @@
 angular
     .module('myApp')
-    .controller('UserController', UserController);
-
-function UserController($scope,  LoginService, UserService, CartService, $state) {//, items) {//, items) {
+    .controller('UserPannelController', UserPannelController);
+function UserPannelController($scope,  LoginService, UserService, CartService, $state) {//, items) {//, items) {
     var vm = this;
     if (LoginService.isLogged()) {
         vm.user = getUser();
@@ -12,20 +11,21 @@ function UserController($scope,  LoginService, UserService, CartService, $state)
     vm.updateAddress = updateAddress;
     vm.logout = logout;
 
-    function getUser() {
+     function getUser() {
         UserService.getCurrentUser().then(function (response) {
             vm.user = response.data;
         });
     }
-
     function updateAddress() {
-
-    }
-
-    function logout() {
-        LoginService.logout();
-        CartService.emptyCart();
-        
+        UserService.updateUserAddress(vm.user).then(function (res) {
+            vm.user = getUser();
+        });
         $state.go("shop");
     }
-}
+
+     function logout() {
+        LoginService.logout();
+        CartService.emptyCart();
+        $state.go("shop");
+    }
+} 

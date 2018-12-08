@@ -1,18 +1,33 @@
+<div id="ads">
+	<div ui-view="slideshow"></div>
+</div>
+<div class="container2">
+	<div class="container1">
+		<div class="orderBy">
+			<h2>SORTUJ WG</h2>
+			<ul>
+				<li><a href="" ng-click="sort(price)">test</a></li>
+				<!--<li><a href="" ng-click="sorting = 'title'; reverse=!reverse">Nazwa</a></li>
+				<li><a href="" ng-click="sorting = 'price'; reverse=!reverse">Cena</a></li>-->
+			</ul>
+		</div>    
+		<div class="products">
+			<div class="product" ng-repeat="item in mainCtrl.items track by $index ">
 
-    <div id="ads">
-        <div ui-view="slideshow"></div>
-    </div>
+				<span class="new_product" ng-if="mainCtrl.isNewItem(item.date)">
+				NOWOSC
+				</span>
+				<a ui-sref="shop.item({id: item._id})">
+					<img ng-src="./img/items/{{item.images[item.imageIndex]}}"
+						 ng-mouseover="item.imageIndex='1'"
+						 ng-mouseleave="item.imageIndex='0'">
+					<span>{{item.title}}</span>
+					<span>{{item.price}} PLN</span>
+				</a>
+				<div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-    <div class="products">
-        <div class="product" ng-repeat="item in mainCtrl.items track by $index">
-            <a ui-sref="shop.item({id: item._id})">
-                <img ng-src="./img/items/{{item.images[item.imageIndex]}}" 
-                 ng-mouseover="item.imageIndex='1'"
-                 ng-mouseleave="item.imageIndex='0'">
-                <span>{{item.title}}</span>
-                <span>{{item.price}} PLN</span>
-            </a>
-            <div>
-            </div>
-        </div>
-    </div>

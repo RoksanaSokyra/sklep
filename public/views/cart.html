@@ -16,7 +16,7 @@
                 <tr class="cart-table-tr-body">
                     <td><img src="./img/items/{{item.images[item.imageIndex]}}"></td>
                     <td>{{item.title}}</td>
-                    <td>36</td>
+                    <td>{{item.size}}</td>
                     <td>
                         <span>
                             <button ng-click="cartCtrl.subQuantity(item)"><</button>
@@ -47,6 +47,6 @@
     </tfoot>
                 -->
         </table>
-        <button class="cart-button" ng-click="cartCtrl.checkIfAddressAdded()">CHECKOUT</button>
+        <button class="cart-button" ng-click="cartCtrl.check()">DO KASY</button>
     </form>
 </div>

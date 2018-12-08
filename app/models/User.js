@@ -1,11 +1,10 @@
 var mongoose = require('mongoose');
-var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
 
 var userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     hash: String,
-    salt: String,
     accessLevel: { type: Number, default: 0 },
     address: {
         name: { type: String, required: true },
@@ -20,13 +19,11 @@ var userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.setPassword = function (password) {
-    this.salt = crypto.randomBytes(16).toString('hex');
-    this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
+    this.hash = bcrypt.hashSync(password, 10);
 };
 
 userSchema.methods.validPassword = function (password) {
-    var hash = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
-    return this.hash === hash;
+    return bcrypt.compareSync(password, this.hash);
 };
 
 userSchema.methods.generateJWT = function () {

@@ -77,7 +77,22 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-		.state('shop.search', {
+		.state('shop.sort', {
+            url: 'sort/:sort',
+            resolve: {
+                items: function (ItemService, $stateParams) {
+                    return ItemService.getSortedItem($stateParams.sort);
+                }
+            },
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/sortItems.html',
+                    controller: 'SortItemsController',
+                    controllerAs: 'sortItem'
+                }
+            }
+        })
+        .state('shop.search', {
             url: 'item_search/:parameter',
             resolve: {
                 items: function (ItemService, $stateParams) {
@@ -91,7 +106,7 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                     controllerAs: 'itemSearchCtrl'
                 }
             }
-		})
+        })
         .state('shop.checkout', {
             url: 'checkout',
             resolve: {
@@ -154,20 +169,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('addItem', {
-            url: '/items',
-            templateUrl: 'views/items.html',
-            controller: 'ItemController',
-            controllerAs: 'itemCtrl'
-
-        })
-        .state('addCategory', {
-            url: '/categories',
-            templateUrl: 'views/categories.html',
-            controller: 'CategoryController',
-            controllerAs: 'categoryCtrl'
-
-        })
         .state('shop.register', {
             url: 'register',
             views: {
@@ -193,26 +194,71 @@ function routeConfig($stateProvider, $urlRouterProvider) {
             views: {
                 'main@shop': {
                     templateUrl: 'views/userPanel.html',
-                    controller: 'UserController',
+                    controller: 'UserPannelController',
                     controllerAs: 'userCtrl'
                 }
             }
         })
-		.state('shop.userPannel.address', {
-			url: '/UserAddress',
-			templateUrl: 'views/userAddress.html'
-		})
-		.state('shop.userPannel.data', {
-			url: '/UserData',
-			templateUrl: 'views/userData.html'
-		})
-        /*.state('shop.userPannel.address', {
-           // views: {
-               // 'content@shop.userPannel': {
-                    url: '/address',
-                    templateUrl: 'views/userAddress.html'
-             //   }
-           // }
-        })*/
-        
+        .state('shop.userPannel.address', {
+            url: '/address',
+            templateUrl: 'views/userAddress.html'
+        })
+        .state('shop.userPannel.data', {
+            url: '/data',
+            templateUrl: 'views/userData.html'
+        })
+        .state('shop.contact', {
+            url: 'contact',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/contact.html'
+                }
+            }
+        })
+        .state('shop.deliveryInfo', {
+            url: 'deliveryInfo',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/deliveryMethods.html'
+                }
+            }
+        })
+        .state('shop.paymentInfo', {
+            url: 'paymentInfo',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/paymentMethods.html'
+                }
+            }
+        })
+        .state('shop.terms', {
+            url: 'terms',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/terms.html'
+                }
+            }
+        })
+        .state('shop.addItem', {
+            url: '/items',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/items.html',
+                    controller: 'ItemController',
+                    controllerAs: 'itemCtrl'
+                }
+            }
+
+        })
+        .state('shop.addCategory', {
+            url: '/categories',
+            views: {
+                'main@shop': {
+                    templateUrl: 'views/categories.html',
+                    controller: 'CategoryController',
+                    controllerAs: 'categoryCtrl'
+                }
+            }
+
+        })
 }

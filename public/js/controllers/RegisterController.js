@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('RegisterController', RegisterController);
 
-function RegisterController(RegisterService, $state) {
+function RegisterController(RegisterService, $state, toastr) {
     var vm = this;
     vm.user = {
         name: "",
@@ -14,6 +14,6 @@ function RegisterController(RegisterService, $state) {
 
     function register() {
         RegisterService.register(vm.user);
-        $state.go('shop.items');
+        $state.go('shop');
     }
 }

@@ -1,11 +1,12 @@
 <div class="product-info">
     <div class="product-image-review">
-        <img class="product-images-mini" ng-repeat="image in itemDetailsCtrl.item.images track by $index" ng-src="./img/items/{{image}}" />
+        <img class="product-images-mini"  ng-repeat="image in itemDetailsCtrl.item.images track by $index" ng-click="itemDetailsCtrl.changeImage($index)" ng-src="./img/items/{{image}}" />
     </div>
         <img  class="product-main-image" ng-src="./img/items/{{itemDetailsCtrl.item.images[itemDetailsCtrl.item.imageIndex]}}" />
         <div class="product-description">
             <h1>{{itemDetailsCtrl.item.title}}</h1>
             <h3>cena: {{itemDetailsCtrl.item.price}} PLN</h3>
+            <form name="productDetailsForm">
             <div class="product-description-sizes">
                 <h3>
                     rozmiar:
@@ -13,15 +14,17 @@
                 <ul>
                     <li ng-repeat="item in itemDetailsCtrl.item.stock track by $index" >
                         <input type="radio" id="{{$index}}" 
-                               ng-disabled="item.quantity == 0" />
+                               ng-model="itemDetailsCtrl.size"
+                               ng-value="{{item.size}}"
+                               ng-disabled="item.quantity == 0" required name="size"/>
                         <label  for="{{$index}}"
                                ng-class="{'diabled-class': item.quantity == 0}">{{item.size}} </label>
                     </li>
                 </ul>
             </div>
             <p></p>
-            <button ng-click="itemDetailsCtrl.addToCart()">add to cart</button>
-
+            <button ng-click="itemDetailsCtrl.addToCart()" ng-disabled="productDetailsForm.size.$invalid">add to cart</button>
+            </form>
             <h4>{{itemDetailsCtrl.item.description}}</h4>
         </div>
     

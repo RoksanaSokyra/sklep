@@ -15,12 +15,9 @@ function UserService(TokenService, $http, $window) {
         });
     }
     function updateUserAddress(user) {
-		console.log("2");
-		let id = getCurrentUser();
-		console.log('/users/' + id + '&' + user.address);
-		return $http.post('/users/' + id + '&' + user.address).then(function (res) {
-			return res;
-		});
+        return $http.put('/users/update/', user).then(function (res) {
+            return res;
+        });
     }
 
 }

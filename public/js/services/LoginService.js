@@ -29,7 +29,7 @@ function LoginService(TokenService, UserService, $http) {
         return $http.post('/login', user).then(function (res) {
             TokenService.saveToken(res.data.token);
             updateStatus();
-		});
+        });
     }
 
     function logout() {

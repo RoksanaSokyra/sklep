@@ -22,9 +22,11 @@ function HeaderController($scope, categories, CartService, LoginService, UserSer
             getUser();
         }
         else vm.user = {};
+
+        $scope.search = {
+            text: '',
+            word: /^[\w -]+/
+        };
     });
-	$scope.search = {
-        text: '',
-        word: /^[\w -]+/
-      };
+   
 }

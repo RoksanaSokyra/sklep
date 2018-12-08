@@ -1,13 +1,27 @@
-        <div class="products">
-            <div class="product" ng-repeat="item in itemByCategoryCtrl.items track by $index">
-                <a ui-sref="shop.item({id: item._id})">
-                    <img ng-src="./img/items/{{item.images[item.imageIndex]}}"
-                         ng-mouseover="item.imageIndex='1'"
-                         ng-mouseleave="item.imageIndex='0'">
-                    <span>{{item.title}}</span>
-                    <span>{{item.price}} PLN</span>
-                </a>
-                <div>
-                </div>
-            </div>
-        </div>
+<div class="container2">
+	<div class="container1">
+		<div class="orderBy">
+			<h2>SORTUJ WG</h2>
+			<ul>
+				<li><a href="" ng-click="sorting = 'title'; reverse=!reverse">Nazwa</a></li>
+				<li><a href="" ng-click="sorting = 'price'; reverse=!reverse">Cena</a></li>
+			</ul>
+		</div>
+		<div class="products">
+			<div class="product" ng-repeat="item in itemByCategoryCtrl.items | orderBy:sorting:reverse track by $index ">
+				<a ui-sref="shop.item({id: item._id})">
+					<span class="new_product" ng-if="itemByCategoryCtrl.isNewItem(item.date)">
+						NOWOSC
+					</span>
+					<img ng-src="./img/items/{{item.images[item.imageIndex]}}"
+						 ng-mouseover="item.imageIndex='1'"
+						 ng-mouseleave="item.imageIndex='0'">
+					<span>{{item.title}}</span>
+					<span>{{item.price}} PLN</span>
+				</a>
+				<div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

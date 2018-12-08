@@ -1,6 +1,6 @@
 angular.module('myApp').factory('CartService', CartService);
 
-function CartService($http, $window) {
+function CartService($http, $window, toastr) {
     var service = {}
     service.addToCart = addToCart;
     service.createCart = createCart;
@@ -11,7 +11,6 @@ function CartService($http, $window) {
     service.emptyCart = emptyCart;
     var cart = initCart();
     return service;
-
 
     function initCart() {
         if (JSON.parse($window.localStorage.getItem('cart'))) {
@@ -29,22 +28,25 @@ function CartService($http, $window) {
         $window.localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    function increaseItemQuantity(item) {
+    function increaseItemQuantity(item, size) {
         var itemIncreased = false;
         cart.items.forEach(function (i) {
-            if (i._id == item._id) {
+            if (i._id == item._id && i.size == size && i.quantity < i.availableQuantity) {
                 itemIncreased = true;
                 i.quantity += 1;
                 i.sum += item.price;
+            }
+            else if (i._id == item._id && i.size == size && i.quantity >= i.availableQuantity) {
+                toastr.error('brak produktu w magazynie', 'koszyk', { closeButton: true, timeOut: 3000 });
             }
         });
         return itemIncreased;
     }
 
-    function decreaceItemQuantity(item) {
+    function decreaceItemQuantity(item, size) {
         var itemDecreased = false;
         cart.items.forEach(function (i) {
-            if (i._id == item._id && i.quantity > 1) { //czemu jak >=1 to moze byc 0
+            if (i._id == item._id && i.size == size && i.quantity > 1) { //czemu jak >=1 to moze byc 0
                 itemDecreased= true;
                 i.quantity -= 1;
                 i.sum -= item.price;
@@ -53,77 +55,88 @@ function CartService($http, $window) {
         return itemDecreased;
     }
 
-    function makeNewCartItem(item) {
+    function makeNewCartItem(item, size) {
+        var quantityInStock = 0;
+        item.stock.forEach(function (i){
+            if (i.size == size) {
+                quantityInStock = i.quantity;
+            }
+        });
         var cartItem = {
             _id: item._id,
             title: item.title,
             images: item.images,
             imageIndex: item.imageIndex,
+            size: size,
             price: item.price,
             quantity: 1,
-            sum: item.price
+            sum: item.price,
+            availableQuantity: quantityInStock
         }
-
-        console.log(cartItem._id);
+        
         return cartItem;
     }
 
     function updateCartValues(item, operator) {
         if (operator == 'add') {
             cart.count += 1;
-            cart.sum += item.price;
+            cart.summary += item.price;
             $window.localStorage.setItem('cart', JSON.stringify(cart));
         }
         else if (operator == 'sub') {
             cart.count -= 1;
-            cart.sum -= item.price;
+            cart.summary -= item.price;
             $window.localStorage.setItem('cart', JSON.stringify(cart));
         }
     }
 
 
-    function addItemToExistingCart(item) {
+    function addItemToExistingCart(item, size) {
         
-        if (!increaseItemQuantity(item)) {
-           cart.items.push(makeNewCartItem(item));
+        if (!increaseItemQuantity(item, size)) {
+           cart.items.push(makeNewCartItem(item, size));
         }
         updateCartValues(item, 'add');
              
     }
 
     function addQuantity(item) {
-        if (increaseItemQuantity(item)) {
+        if (increaseItemQuantity(item, item.size)) {
             updateCartValues(item, 'add');
         }  }
 
     function subQuantity(item) {
-        if (decreaceItemQuantity(item)) {
+        if (decreaceItemQuantity(item, item.size)) {
             updateCartValues(item, 'sub');
         }
      }
 
-    function addToCart(item) { 
+    function addToCart(item, size) { 
+        toastr.success('dodano do koszyka', 'koszyk', { closeButton: true, timeOut: 3000 });
         if ($window.localStorage.getItem('cart')) {
-            addItemToExistingCart(item);
+            addItemToExistingCart(item, size);
         }
         else {
             createCart();
-            addItemToExistingCart(item);
+            addItemToExistingCart(item, size);
         }
 
     }
 
     function removeFromCart(item) {
         cart.items.forEach(function (i) {
-            if (i._id == item._id) {
+            console.log("item and size compare: " + i.size + " " + item.size);
+            if (i._id == item._id && i.size == item.size) {
                 cart.count -= i.quantity;
                 cart.summary -= i.sum;
-                cart.items.splice(cart.items.indexOf(i, 1));
+                cart.items.splice(cart.items.indexOf(i), 1);
                 $window.localStorage.setItem('cart', JSON.stringify(cart));
             }
         });
     }
     function emptyCart() {
+        cart.count = 0;
+        cart.summary = 0;
         cart.items.splice(0, cart.items.length);
         $window.localStorage.setItem('cart', JSON.stringify(cart));
     }
