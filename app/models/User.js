@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 
-var userSchema = new mongoose.Schema({
+var userSchema = new mongoose.Schema(
+    {
     email: { type: String, required: true, unique: true },
     hash: String,
     accessLevel: { type: Number, default: 0 },
@@ -16,7 +17,8 @@ var userSchema = new mongoose.Schema({
         country: String
     },
     phone: Number
-});
+    }
+);
 
 userSchema.methods.setPassword = function (password) {
     this.hash = bcrypt.hashSync(password, 10);
