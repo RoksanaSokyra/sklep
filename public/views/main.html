@@ -2,10 +2,14 @@
     <div id="ads">
         <div ui-view="slideshow"></div>
     </div>
-
+        <select ng-model="mainCtrl.sortType" class="sort" ng-change="mainCtrl.sort(mainCtrl.sortType)">
+            <option value="-date">Najnowsze</option>
+            <option value="price">Najnizsza cena</option>
+            <option value="-price">Najwyzsza cena</option>
+        </select>
     <div class="products">
-        <div class="product" ng-repeat="item in mainCtrl.items track by $index ">
-
+        <div class="product" ng-repeat="item in mainCtrl.items | orderBy: mainCtrl.sortType track by $index ">
+        
             <span class="new_product" ng-if="mainCtrl.isNewItem(item.date)">
             NOWOSC
             </span>

@@ -23,6 +23,7 @@
                ng-model="registerCtrl.user.password" ng-class="{ 'inputError': registerForm.password.$invalid && registerForm.password.$touched}"
                pattern=".{6,}" required name="password">
         <p class="error" ng-show="registerForm.password.$touched && registerForm.password.$invalid">Haslo musi miec conajmniej 6 znakow</p>
+        <!-- <input type="checkbox">*Akceptuje warunki<a ui-sref="shop.terms"> regulaminu </a>-->
         <button type="submit" ng-click="registerCtrl.register()"
                 ng-disabled="registerForm.$invalid">
             Register

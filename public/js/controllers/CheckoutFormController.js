@@ -33,6 +33,8 @@ function CheckoutFormController($state, OrderService, CartService, LoginService,
         UserService.getCurrentUser().then(function (response) {
             var userId = response.data._id;
             OrderService.addOrder(userId, vm.cart, vm.address, vm.paymentMethod, vm.delivery);
+            CartService.emptyCart();
+            $state.go('shop');
             });
             }
 }

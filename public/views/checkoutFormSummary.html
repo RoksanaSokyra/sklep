@@ -1,14 +1,16 @@
 <div class="summary">
     <h1>PODSUMOWANIE</h1>
     <h2>Dane do wysylki</h2>
-    <p>{{checkoutCtrl.address.name}}</p>
+    <p>{{checkoutCtrl.address.name}} {{checkoutCtrl.address.surname}}</p>
     <p>{{checkoutCtrl.address.postalCode}} {{checkoutCtrl.address.city}}</p>
-    <p>{{checkoutCtrl.address.street}} {{checkoutCtrl.address.number}}</p>
+    <p>ul. {{checkoutCtrl.address.street}} {{checkoutCtrl.address.number}}</p>
     <p>{{checkoutCtrl.address.country}}</p>
     <h2>Dostawa</h2>
-    <p>{{checkoutCtrl.delivery.title}}</p>
+    <p>{{checkoutCtrl.delivery.title}} : {{checkoutCtrl.delivery.price}} PLN</p>
     <h2>Forma platnosci</h2>
     <span>{{checkoutCtrl.paymentMethod}}</span>
+    <h2>Suma</h2>
+    <span>{{checkoutCtrl.cart.summary + checkoutCtrl.delivery.price}} PLN</span>
     <h2>Wybrane produkty</h2>
     <table class="cart-table">
         <thead>

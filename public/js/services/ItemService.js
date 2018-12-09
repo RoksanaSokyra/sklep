@@ -8,7 +8,7 @@ function ItemService($http, DateService) {
     service.getItemByCategory = getItemByCategory;
     service.isNewItem = isNewItem;
     service.getSearchItems = getSearchItems;
-
+    service.getSortedItems = getSortedItems;
     return service;
 
     function getItems() {
@@ -16,6 +16,13 @@ function ItemService($http, DateService) {
             return response.data;
         });
     }
+
+    function getSortedItems(type, category) {
+     //   return $http.get('/items_sort?'+'condition='+type.condition+'&order='+type.order+'&category='+category).then(function (response) { //response.data mozna zamienic n data.data?
+       //     return response.data;
+       // });
+    }
+
     function getItem(id) {
         return $http.get('items/' + id).then(function (response) {
             console.log(response.data);

@@ -18,7 +18,7 @@
                    ng-model="checkoutCtrl.address.country" ng-class="{ 'inputError': checkoutForm.country.$touched && checkoutForm.country.$invalid}" required name="country">
             <p class="error" ng-show="checkoutForm.country.$touched && checkoutForm.country.$invalid">puste pole</p>
 
-            <button ui-sref="shop.checkout.deliveryAndPayment">DALEJ</button>
+            <button ui-sref="shop.checkout.deliveryAndPayment" ng-disabled="checkoutForm.$invalid">DALEJ</button>
         </div>
 
         <div class="col-2">

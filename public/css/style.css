@@ -123,7 +123,16 @@
     transform: translate(-50%, -50%);
     font-size: 14px;
 }
-    /*KATEGORIE MENU*/
+
+/*SORTOWANIE*/
+.sort{
+    font-family: Quicksand-Regular;
+    font-size: 16px;
+    padding: 4px;
+    border: 1px solid grey;
+    margin-left:30px;
+}
+/*KATEGORIE MENU*/
 .categories {
     background-color: #E6F6F4;
     zoom: 1;
@@ -177,6 +186,17 @@
         text-align: center;
         text-transform: uppercase;
     }
+.categories li:before {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.categories li:after {
+    content: '';
+    display: table;
+    clear: both;
+}
         .categories li a {
             color: #6A6A6A;
             text-decoration: none;
@@ -199,13 +219,14 @@
         font-weight: 700;
     }
 
+
 /*PRODUKTY*/
 .products {
     margin-top: 20px;
     position: relative;
-    margin-left: 20px; /*ew zmienic jakby byly filtry*/
-    width: 1285px;
-    display: table;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    display: flex;
 }
 .products h2{
     text-align: center;
@@ -220,9 +241,21 @@
     border: 1px solid white;
     width: 255px;
     margin-bottom: 10px;
-    float: left;
-    display: table-cell;
+    width:20%;
+    box-sizing:border-box;
 }
+.product:before {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.product:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
     .product img {
         margin-top: 10px;
         margin-left: 10px;
@@ -524,9 +557,21 @@ label.diabled-class:hover {
         padding: 10px;
         font-size: 17px;
         border: 1px solid grey;
-        width: 400px;
         background: #f1f1f1;
     }
+        .register input[type="text"], input[type="password"], input[type="email"] {
+            width: 400px;
+        }
+        .register input[type="checkbox"] {
+            display: inline;
+        }
+        .register a {
+            color:black;
+            text-decoration:none;
+        }
+            .register a:hover {
+                color: #63C7BA
+            }
     .register button {
         font-family: Quicksand-Regular;
         display: block;
@@ -647,6 +692,9 @@ input.inputError {
 .summary {
     font-family: Quicksand-Regular;
     font-size: 14px;
+}
+.summary h1 {
+    padding-left:0;
 }
 
 .summary button {

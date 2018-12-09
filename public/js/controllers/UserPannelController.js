@@ -20,7 +20,7 @@ function UserPannelController($scope,  LoginService, UserService, CartService, $
         UserService.updateUserAddress(vm.user).then(function (res) {
             vm.user = getUser();
         });
-        $state.go("shop");
+        $state.go("shop.userPannel.data");
     }
 
      function logout() {
