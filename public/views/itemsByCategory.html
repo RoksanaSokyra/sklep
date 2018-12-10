@@ -1,16 +1,21 @@
-        <div class="products">
-            <div class="product" ng-repeat="item in itemByCategoryCtrl.items track by $index">
-                <a ui-sref="shop.item({id: item._id})">
-                    <span class="new_product" ng-if="itemByCategoryCtrl.isNewItem(item.date)">
-                        NOWOSC
-                    </span>
-                    <img ng-src="./img/items/{{item.images[item.imageIndex]}}"
-                         ng-mouseover="item.imageIndex='1'"
-                         ng-mouseleave="item.imageIndex='0'">
-                    <span>{{item.title}}</span>
-                    <span>{{item.price}} PLN</span>
-                </a>
-                <div>
-                </div>
-            </div>
+<select ng-model="itemByCategoryCtrl.sortType" class="sort" ng-change="itemByCategoryCtrl.sort(itemByCategoryCtrl.sortType)">
+    <option value="-date">Najnowsze</option>
+    <option value="price">Najnizsza cena</option>
+    <option value="-price">Najwyzsza cena</option>
+</select>
+<div class="products">
+    <div class="product" ng-repeat="item in itemByCategoryCtrl.items | orderBy: itemByCategoryCtrl.sortType track by $index">
+        <a ui-sref="shop.item({id: item._id})">
+            <span class="new_product" ng-if="itemByCategoryCtrl.isNewItem(item.date)">
+                NOWOSC
+            </span>
+            <img ng-src="./img/items/{{item.images[item.imageIndex]}}"
+                 ng-mouseover="item.imageIndex='1'"
+                 ng-mouseleave="item.imageIndex='0'">
+            <span>{{item.title}}</span>
+            <span>{{item.price}} PLN</span>
+        </a>
+        <div>
         </div>
+    </div>
+</div>

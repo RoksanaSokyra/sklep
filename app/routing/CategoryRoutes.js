@@ -11,11 +11,10 @@ module.exports = function (app) {
             message: "OK!"
         });
     });
-    app.get('/categories', function (req, res) {
+    app.get('/categories', function (req, res, next) {
         Category.find({}, function (err, categories) {
-            if (err) { console.log("blad"); }
+            if (err) { next(err); }
             res.json(categories);
         });
     });
-
 };
