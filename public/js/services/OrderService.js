@@ -5,6 +5,6 @@ function OrderService($http, $window) {
     service.addOrder = addOrder;
     return service;
     function addOrder(customerId, cart, address, paymentMethod, deliveryMethod) {
-        return $http.post('/orders/', { customerId, address, cart, paymentMethod, deliveryMethod }); //czy drugi ukosnik potrzebny
+        return $http.post('/orders/', { customerId, address, cart, paymentMethod, deliveryMethod }); 
     }
 }

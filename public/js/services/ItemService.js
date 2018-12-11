@@ -8,19 +8,12 @@ function ItemService($http, DateService) {
     service.getItemByCategory = getItemByCategory;
     service.isNewItem = isNewItem;
     service.getSearchItems = getSearchItems;
-    service.getSortedItems = getSortedItems;
     return service;
 
     function getItems() {
-        return $http.get('/items').then(function (response) { //response.data mozna zamienic n data.data?
+        return $http.get('/items').then(function (response) { 
             return response.data;
         });
-    }
-
-    function getSortedItems(type, category) {
-     //   return $http.get('/items_sort?'+'condition='+type.condition+'&order='+type.order+'&category='+category).then(function (response) { //response.data mozna zamienic n data.data?
-       //     return response.data;
-       // });
     }
 
     function getItem(id) {
@@ -31,7 +24,7 @@ function ItemService($http, DateService) {
     }
 
     function putItem(item) {
-        return $http.post('/items/', item); //czy drugi ukosnik potrzebny
+        return $http.post('/items/', item); 
     }
 
     function getItemByCategory(category) {

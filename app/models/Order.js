@@ -20,5 +20,5 @@ var orderSchema = new mongoose.Schema(
     }
 );
 
-var Order = mongoose.model('Order', orderSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny
-module.exports = Order; //esport modelu
+var Order = mongoose.model('Order', orderSchema); 
+module.exports = Order; 

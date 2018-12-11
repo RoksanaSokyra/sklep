@@ -13,5 +13,5 @@ var itemSchema = new mongoose.Schema(
     }
 );
 
-var Item = mongoose.model('Item', itemSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny
-module.exports = Item; //esport modelu
+var Item = mongoose.model('Item', itemSchema); 
+module.exports = Item; 

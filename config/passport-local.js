@@ -3,8 +3,8 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
-passport.use(new LocalStrategy({ // or whatever you want to use
-    usernameField: 'email',    // define the parameter in req.body that passport can use as username and password
+passport.use(new LocalStrategy({ 
+    usernameField: 'email',    
     passwordField: 'password'
 },
     function (email, password, done) {

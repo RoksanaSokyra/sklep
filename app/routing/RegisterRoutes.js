@@ -1,4 +1,3 @@
-//var User = require('./models/User');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var validator = require('validator')

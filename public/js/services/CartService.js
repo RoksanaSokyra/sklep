@@ -46,7 +46,7 @@ function CartService($http, $window, toastr) {
     function decreaceItemQuantity(item, size) {
         var itemDecreased = false;
         cart.items.forEach(function (i) {
-            if (i._id == item._id && i.size == size && i.quantity > 1) { //czemu jak >=1 to moze byc 0
+            if (i._id == item._id && i.size == size && i.quantity > 1) { 
                 itemDecreased= true;
                 i.quantity -= 1;
                 i.sum -= item.price;
@@ -125,7 +125,6 @@ function CartService($http, $window, toastr) {
 
     function removeFromCart(item) {
         cart.items.forEach(function (i) {
-            console.log("item and size compare: " + i.size + " " + item.size);
             if (i._id == item._id && i.size == item.size) {
                 cart.count -= i.quantity;
                 cart.summary -= i.sum;

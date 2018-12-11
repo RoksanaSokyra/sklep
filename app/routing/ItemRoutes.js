@@ -24,21 +24,9 @@ module.exports = function (app) {
             res.json(items);
         });
     });
-   /* app.get('/items_sort', function (req, res) {
-        //console.log(req.query.condition);
-        ///console.log(req.query.order);
-        //console.log(req.query.category);
-        var a = req.query.condition;
-        Item.find({}).sort({ a : 1 }).exec(function (err, items) {
-            items.forEach(function (i) { console.log(i.title + " " + i.price) });
-            console.log("KONIEC");
-            if (err) { console.log("blad"); }
-            res.json(items);
-        } );
-    });*/
     app.get('/items/:id', function (req, res) {
         Item.findById(req.params.id, function (err, item) {
-            if (err) { console.log("blad tutej"); }
+            if (err) { console.log("blad"); }
             res.json(item);
         });
     });
@@ -51,7 +39,6 @@ module.exports = function (app) {
     app.get('/item_search/:parameter', function (req, res) {
 
         let search = req.params.parameter;
-        console.log(req.params.parameter);
         Item.find({
             $or: [
                 { title: new RegExp(search, "i") },
@@ -62,25 +49,5 @@ module.exports = function (app) {
             res.json(items);
         });
     });
-    /*app.get('/item-quantity', function (req, res) {
-        console.log(req.query.size);
-        console.log(req.query.quantity);
-        console.log(req.query.id);
-        Item.findById(req.query.id, function (err, item) {
-            console.log(item.stock);
-            item.stock.forEach(function (a) {
-                if (a.size == req.query.size && a.quantity < req.query.quantity) {
-                    return res.json({
-                        error: "1",
-                        message: "brak produktow w magazynie",
-                        availableQuantity: a.quantity
-                    })
-                }
-            }
-            )
-        });
-        return res.json({
-            message: "OK!"
-        })
-    });*/
+   
 };

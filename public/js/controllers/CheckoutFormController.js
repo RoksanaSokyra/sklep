@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('CheckoutFormController', CheckoutFormController);
 
-function CheckoutFormController($state, OrderService, CartService, LoginService, UserService, delivery) { //cart jako argument
+function CheckoutFormController($state, OrderService, CartService, LoginService, UserService, delivery) { 
     var vm = this;
     vm.cart = CartService.getCart();
     vm.isLogged = isLogged();

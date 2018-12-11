@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('ItemDetailsController', ItemDetailsController);
 
-function ItemDetailsController(item, $state, CartService) {//, items) {//, items) {
+function ItemDetailsController(item, $state, CartService) {
     var vm = this;
     vm.item = item;
     vm.addToCart = addToCart;
@@ -10,8 +10,7 @@ function ItemDetailsController(item, $state, CartService) {//, items) {//, items
     vm.size = "";
 
     function addToCart() {
-        console.log(vm.size);
-        CartService.addToCart(item, vm.size); //size
+        CartService.addToCart(item, vm.size); 
     }
 
     function changeImage(index) {

@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('UserController', UserController);
 
-function UserController($scope,  LoginService, UserService, CartService, $state) {//, items) {//, items) {
+function UserController($scope,  LoginService, UserService, CartService, $state) {
     var vm = this;
     if (LoginService.isLogged()) {
         vm.user = getUser();

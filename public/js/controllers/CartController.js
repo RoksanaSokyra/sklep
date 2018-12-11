@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('CartController', CartController);
 
-function CartController(CartService, UserService, TokenService, LoginService, $state, toastr) { //cart jako argument
+function CartController(CartService, UserService, TokenService, LoginService, $state, toastr) { 
     var vm = this;
     vm.cart = CartService.getCart();
     vm.addQuantity = addQuantity;

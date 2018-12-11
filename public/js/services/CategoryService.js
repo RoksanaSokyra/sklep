@@ -8,12 +8,12 @@ function CategoryService($http) {
     return service;
 
     function getCategories () {
-        return $http.get('/categories').then(function (response) { //response.data mozna zamienic n data.data?
+        return $http.get('/categories').then(function (response) { 
             return response.data;
         });
     }
     function putCategory(category) {
-      return $http.post('/categories/', category); //czy drugi ukosnik potrzebny
+      return $http.post('/categories/', category); 
      }
 
 }

@@ -1,7 +1,6 @@
 angular.module('myApp').config(routeConfig);
 
 function routeConfig($stateProvider, $urlRouterProvider) {
-    //$urlRouterProvider.otherwise('/home');
 
     $stateProvider
         .state('shop', {
@@ -18,11 +17,6 @@ function routeConfig($stateProvider, $urlRouterProvider) {
                 '': {
                     templateUrl: 'views/shop_structure.html',
                 },
-                //'header@shop': {
-                  //  templateUrl: 'views/header.html',
-                    //controller: 'HeaderController',
-                   // controllerAs:'headerCtrl'
-                //},
                 'footer@shop': {
                     templateUrl: 'views/footer.html',
                 },

@@ -1,4 +1,3 @@
-//var User = require('./models/User');
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var passport = require('passport');
@@ -18,5 +17,3 @@ module.exports = function (app) {
     });
 
 };
-
-//walidacja i odpowiedzi serwera

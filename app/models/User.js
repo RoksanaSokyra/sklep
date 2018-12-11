@@ -34,10 +34,9 @@ userSchema.methods.generateJWT = function () {
     exp.setDate(today.getDate() + 60);
     return jwt.sign({
         id: this._id,
-       // email: this.email ??
         exp: parseInt(exp.getTime() / 1000)
-    }, 'secret');//process.env.JWT_SECRET);//"secret");//process.env.JWT_SECRET);
+    }, 'secret');
 };
 
-var User = mongoose.model('User', userSchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny
-module.exports = User; //esport modelu
+var User = mongoose.model('User', userSchema);
+module.exports = User;

@@ -7,11 +7,11 @@ function DeliveryService($http) {
     return service;
 
     function putDelivery(delivery) {
-        return $http.post('/deliveries/', delivery); //czy drugi ukosnik potrzebny
+        return $http.post('/deliveries/', delivery); 
     }
 
     function getDeliveries() {
-        return $http.get('/delivieries').then(function (response) { //response.data mozna zamienic n data.data?
+        return $http.get('/delivieries').then(function (response) { 
             return response.data;
         });
     }

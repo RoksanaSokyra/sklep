@@ -20,7 +20,7 @@ require('./config/passport-local');
 
 var port = process.env.PORT || 8081; 
 
-mongoose.connect('mongodb://admin:adminadmin123@ds253243.mlab.com:53243/shop'); //podac url 
+mongoose.connect('mongodb://admin:adminadmin123@ds253243.mlab.com:53243/shop'); 
 
 app.use(bodyParser.json());
 
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(methodOverride('X-HTTP-Method-Override'));
 
-app.use(express.static(__dirname + '/public'));  //?
+app.use(express.static(__dirname + '/public'));  
 
 
 app.use(session({
@@ -42,7 +42,7 @@ app.use(session({
     }
 }));
 app.use(passport.initialize());
-app.use(passport.session()); //potrzebe?
+app.use(passport.session()); 
 
 
 require('./app/routes')(app);

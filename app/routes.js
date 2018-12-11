@@ -12,5 +12,3 @@ module.exports = function (app) {
     require('./routing/UserRoutes')(app);
 
 };
-
-//walidacja i odpowiedzi serwera

@@ -6,5 +6,5 @@ var categorySchema = new mongoose.Schema(
     }
 );
 
-var Category = mongoose.model('Category', categorySchema); //trzeba utwoezyc model dla shcematu bo na razie jest bezuzyteczny
-module.exports = Category; //esport modelu
+var Category = mongoose.model('Category', categorySchema); 
+module.exports = Category; 

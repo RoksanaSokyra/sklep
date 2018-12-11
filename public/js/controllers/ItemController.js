@@ -10,7 +10,6 @@ function ItemController(ItemService, $state) {
         size: 0,
         category: "",
         price: 0,
-       // images: [],
         mainImageIndex: 0,
         quantity: 0
     };

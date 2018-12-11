@@ -1,7 +1,7 @@
 angular
     .module('myApp')
     .controller('ItemsSearchController', ItemsSearchController);
-function ItemsSearchController($scope, items, ItemService) {//, items) {//, items) {
+function ItemsSearchController($scope, items, ItemService) {
     var vm = this;
     vm.items = items;
     vm.isNewItem = isNewItem;

@@ -2,7 +2,7 @@ angular
     .module('myApp')
     .controller('MainController', MainController, moment);
 
-function MainController($scope, items, ItemService) {//, items) {//, items) {
+function MainController($scope, items, ItemService) {
     var vm = this;
     vm.items = items;
     vm.isNewItem = isNewItem;

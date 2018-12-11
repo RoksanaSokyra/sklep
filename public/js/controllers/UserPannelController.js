@@ -1,7 +1,7 @@
 angular
     .module('myApp')
     .controller('UserPannelController', UserPannelController);
-function UserPannelController($scope,  LoginService, UserService, CartService, $state) {//, items) {//, items) {
+function UserPannelController($scope,  LoginService, UserService, CartService, $state) {
     var vm = this;
     if (LoginService.isLogged()) {
         vm.user = getUser();
